@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="How to Use CodeContext" description="A practical guide to installing, analyzing, exploring, and integrating CodeContext.">
+  <main class="container page">
+    <header class="hero">
+      <p class="eyebrow">GET STARTED</p>
+      <h1>How to use CodeContext</h1>
+      <p class="lead">Go from a fresh installation to evidence-backed repository intelligence in a few practical steps.</p>
+    </header>
+
+    <section class="steps">
+      <article class="step"><span>01</span><div><h2>Install CodeContext</h2><p>Download the latest release for your platform from GitHub Releases, then verify the CLI is available.</p><pre><code>codecontext --version</code></pre></div></article>
+      <article class="step"><span>02</span><div><h2>Analyze a repository</h2><p>Run CodeContext from the repository you want to understand. Analysis builds deterministic repository intelligence locally.</p><pre><code>cd your-project
+codecontext analyze .</code></pre></div></article>
+      <article class="step"><span>03</span><div><h2>Explore the intelligence</h2><p>Use the generated context to understand structure, dependencies, architecture, Git evolution, and relationships between code components.</p></div></article>
+      <article class="step"><span>04</span><div><h2>Ask grounded questions</h2><p>Use repository Q&amp;A when you need an explanation. Answers are grounded in repository evidence instead of relying only on model memory.</p></div></article>
+      <article class="step"><span>05</span><div><h2>Understand changes</h2><p>Use change-impact analysis, PR Intelligence, and Architecture Intelligence to understand what a change can affect and why.</p></div></article>
+      <article class="step"><span>06</span><div><h2>Generate an engineering plan</h2><p>Turn repository evidence into an actionable plan containing affected areas, risks, evidence, and verification steps.</p></div></article>
+      <article class="step"><span>07</span><div><h2>Use the REST API</h2><p>For local integrations, start the REST server and use the health and intelligence endpoints. The server is intended for trusted local use and is not a public multi-tenant service.</p><pre><code>codecontext serve</code></pre></div></article>
+      <article class="step"><span>08</span><div><h2>Add it to CI</h2><p>Run CodeContext in your development or CI workflow to make repository understanding, evidence, and verification repeatable.</p></div></article>
+    </section>
+
+    <section class="trust">
+      <h2>Local-first by design</h2>
+      <div class="grid">
+        <div><strong>Deterministic first</strong><p>Repository structure and core intelligence are produced locally and reproducibly.</p></div>
+        <div><strong>AI is optional</strong><p>AI-assisted workflows can add explanation and planning without replacing repository evidence.</p></div>
+        <div><strong>Evidence matters</strong><p>Grounded workflows connect conclusions back to repository-relative evidence.</p></div>
+      </div>
+    </section>
+
+    <section class="next"><h2>Ready to try it?</h2><p>Start with the latest stable release, then return here as your workflow grows.</p><div class="actions"><a href="https://github.com/sonii-shivansh/CodeContext/releases/latest">Download CodeContext</a><a href="/docs">Read the documentation</a></div></section>
+  </main>
+</BaseLayout>
+
+<style>
+  .page{padding:5rem 1.25rem 7rem}.hero{max-width:800px;margin-bottom:4rem}.eyebrow{font-weight:700;letter-spacing:.12em;font-size:.78rem}.hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:.98;margin:.6rem 0 1.25rem}.lead{font-size:1.2rem;line-height:1.7;opacity:.75}.steps{display:grid;gap:1rem;max-width:900px}.step{display:grid;grid-template-columns:64px 1fr;gap:1.5rem;padding:2rem;border:1px solid var(--border);border-radius:18px;background:var(--surface)}.step>span{font-weight:800;font-size:1.1rem;opacity:.45}.step h2{margin:0 0 .6rem}.step p{line-height:1.7;opacity:.78;margin:.3rem 0 1rem}.step pre{padding:1rem;border-radius:12px;overflow:auto;background:var(--code-bg,var(--surface));border:1px solid var(--border)}.trust{margin:5rem 0}.trust h2,.next h2{font-size:2rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.grid>div{padding:1.5rem;border:1px solid var(--border);border-radius:16px}.grid p{line-height:1.6;opacity:.75}.next{padding:2rem;border:1px solid var(--border);border-radius:20px}.actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}.actions a{padding:.8rem 1.1rem;border:1px solid var(--border);border-radius:10px;text-decoration:none;font-weight:700}.actions a:first-child{background:var(--text);color:var(--background)}
+  @media(max-width:700px){.page{padding-top:3rem}.step{grid-template-columns:1fr;padding:1.4rem}.grid{grid-template-columns:1fr}.hero{margin-bottom:2.5rem}}
+</style>
