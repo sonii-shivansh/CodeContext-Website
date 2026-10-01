@@ -2,20 +2,26 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const releases = [
-  ['v0.5.0', 'Engineering Intelligence Foundation', 'Current CodeContext milestone covering repository, change, PR, architecture, evidence, Q&A, and planning capabilities.'],
-  ['v0.2.0', 'CodeContext release', 'Previous published release and baseline for the current product line.']
+  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Current stable CodeContext release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', true],
+  ['v0.5.0', 'Engineering Intelligence Foundation', 'Previous published milestone covering repository, change, PR, architecture, evidence, Q&A, and planning capabilities.', false],
+  ['v0.2.0', 'CodeContext release', 'Previous published release in the product line.', false]
 ];
 ---
 
-<BaseLayout title="Releases — CodeContext" description="CodeContext release history and distribution links.">
+<BaseLayout title="Releases — CodeContext" description="CodeContext release history, platform support, and distribution links.">
   <section class="hero container">
     <span class="kicker">RELEASES</span>
     <h1>Shipped,<br /><span>versioned, inspectable.</span></h1>
-    <p>Release information is intentionally concise here. GitHub remains the authoritative source for assets, checksums, source archives, and release details.</p>
+    <p>GitHub remains the authoritative source for release assets, checksums, source archives, and detailed release notes.</p>
+  </section>
+  <section class="container current">
+    <div><span class="kicker">CURRENT STABLE</span><h2>v0.6.0</h2><p>Engineering intelligence with a launch-hardened local-first runtime.</p></div>
+    <a class="button" href="https://github.com/sonii-shivansh/CodeContext/releases/tag/v0.6.0">Download on GitHub ↗</a>
+    <div class="platforms"><span>Linux x64</span><span>Windows x64</span><span>macOS x64</span><span>macOS ARM64</span></div>
   </section>
   <section class="container releases">
-    {releases.map(([version, title, description]) => (
-      <article class="release">
+    {releases.map(([version, title, description, current]) => (
+      <article class:list={{ release: true, currentRelease: current }}>
         <div><span class="version">{version}</span><h2>{title}</h2><p>{description}</p></div>
         <a href={`https://github.com/sonii-shivansh/CodeContext/releases/tag/${version}`}>View release ↗</a>
       </article>
@@ -24,8 +30,8 @@ const releases = [
 </BaseLayout>
 
 <style>
-  .hero { padding: 110px 0 65px; max-width: 900px; }.kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }
-  h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; } h1 span { color: var(--muted); }.hero p { max-width: 700px; color: var(--muted); }
-  .releases { display: grid; gap: 10px; }.release { padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); display: flex; justify-content: space-between; align-items: center; gap: 25px; }.version { color: var(--accent); font: .75rem ui-monospace, monospace; }.release h2 { margin: 10px 0 5px; font-size: 1.3rem; }.release p { margin: 0; color: var(--muted); }.release a { white-space: nowrap; text-decoration: none; }.release a:hover { color: var(--accent); }
-  @media (max-width: 700px) { .release { flex-direction: column; align-items: flex-start; } }
+  .hero { padding: 110px 0 65px; max-width: 900px; }.kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }.hero h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; }.hero h1 span { color: var(--muted); }.hero p { max-width: 700px; color: var(--muted); }
+  .current { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 26px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }.current h2 { margin: 8px 0 4px; font-size: 2rem; }.current p { margin: 0; color: var(--muted); }.button { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 18px; border-radius: 8px; background: var(--text); color: var(--bg); text-decoration: none; font-weight: 650; }.platforms { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }.platforms span { padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: .68rem ui-monospace, monospace; }
+  .releases { margin-top: 14px; display: grid; gap: 10px; }.release { padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); display: flex; justify-content: space-between; align-items: center; gap: 25px; }.currentRelease { border-color: #365f52; }.version { color: var(--accent); font: .75rem ui-monospace, monospace; }.release h2 { margin: 10px 0 5px; font-size: 1.3rem; }.release p { margin: 0; color: var(--muted); }.release a { white-space: nowrap; text-decoration: none; }.release a:hover { color: var(--accent); }
+  @media (max-width: 700px) { .current { grid-template-columns: 1fr; }.platforms { margin-top: 4px; }.release { flex-direction: column; align-items: flex-start; } }
 </style>
