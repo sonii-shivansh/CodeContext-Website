@@ -13,22 +13,13 @@ const capabilities = [
 ];
 ---
 
-<BaseLayout
-  title="CodeContext — Evidence-driven engineering intelligence"
-  description="Understand repositories, dependencies, changes, architecture, and engineering plans with evidence-backed context."
->
+<BaseLayout title="CodeContext — Evidence-driven engineering intelligence" description="Understand repositories, dependencies, changes, architecture, and engineering plans with evidence-backed context.">
   <section class="hero container">
     <div class="eyebrow"><span class="pulse"></span> Engineering intelligence for real repositories</div>
     <h1>Understand the codebase<br /><span>before changing it.</span></h1>
     <p class="hero-copy">CodeContext turns repository structure, dependencies, history, architecture, and changes into grounded engineering context for developers and teams.</p>
-    <div class="actions">
-      <a class="button primary" href="https://github.com/sonii-shivansh/CodeContext">View on GitHub ↗</a>
-      <a class="button secondary" href="#demo">Explore the proof</a>
-    </div>
-
-    <div class="terminal" aria-label="Example CodeContext analysis output">
-      <div class="terminal-bar"><span></span><span></span><span></span><strong>codecontext analysis</strong></div>
-      <pre><code><span class="dim">$</span> codecontext analyze ./payment-service
+    <div class="actions"><a class="button primary" href="https://github.com/sonii-shivansh/CodeContext">View on GitHub ↗</a><a class="button secondary" href="#demo">Explore the proof</a></div>
+    <div class="terminal" aria-label="Example CodeContext analysis output"><div class="terminal-bar"><span></span><span></span><span></span><strong>codecontext analysis</strong></div><pre><code><span class="dim">$</span> codecontext analyze ./payment-service
 
 <span class="ok">✓</span> Repository indexed             <b>428 files</b>
 <span class="ok">✓</span> Dependency relationships        <b>1,284</b>
@@ -43,100 +34,22 @@ const capabilities = [
 <span class="accent">Plan</span>
   01  inspect affected contracts
   02  update implementation
-  03  verify impacted tests</code></pre>
-    </div>
+  03  verify impacted tests</code></pre></div>
   </section>
 
-  <section id="capabilities" class="section container">
-    <div class="section-heading"><span class="kicker">01 / CAPABILITIES</span><h2>From repository structure to engineering context.</h2><p>Current CodeContext capabilities, presented from the implementation rather than marketing assumptions.</p></div>
-    <div class="capability-grid">
-      {capabilities.map(([title, description], index) => (
-        <article class="capability-card">
-          <span class="index">0{index + 1}</span>
-          <h3>{title}</h3>
-          <p>{description}</p>
-        </article>
-      ))}
-    </div>
-  </section>
+  <section id="capabilities" class="section container"><div class="section-heading"><span class="kicker">01 / CAPABILITIES</span><h2>From repository structure to engineering context.</h2><p>Current CodeContext capabilities, presented from the implementation rather than marketing assumptions.</p></div><div class="capability-grid">{capabilities.map(([title, description], index) => (<article class="capability-card"><span class="index">0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>))}</div></section>
 
-  <section id="architecture" class="section container">
-    <div class="section-heading"><span class="kicker">02 / ARCHITECTURE</span><h2>Evidence first. Reasoning second.</h2><p>CodeContext is designed so deterministic repository analysis can provide the factual foundation for higher-level engineering workflows.</p></div>
-    <div class="flow" aria-label="CodeContext processing flow">
-      <div>Repository</div><i>→</i><div>Analysis</div><i>→</i><div>Evidence</div><i>→</i><div>Q&amp;A / Planner</div>
-    </div>
-    <div class="architecture-grid">
-      <article><span class="kicker">DETERMINISTIC</span><h3>Repository facts</h3><p>Structure, dependencies, changes, architecture signals, and other repository-derived information form the evidence layer.</p></article>
-      <article><span class="kicker">GROUNDED</span><h3>Traceable answers</h3><p>Higher-level outputs can reference evidence rather than presenting unsupported repository claims.</p></article>
-      <article><span class="kicker">ACTIONABLE</span><h3>Engineering plans</h3><p>The planner turns grounded context into structured implementation and verification steps.</p></article>
-    </div>
-  </section>
+  <section id="architecture" class="section container"><div class="section-heading"><span class="kicker">02 / ARCHITECTURE</span><h2>Evidence first. Reasoning second.</h2><p>CodeContext is designed so deterministic repository analysis can provide the factual foundation for higher-level engineering workflows.</p></div><div class="flow" aria-label="CodeContext processing flow"><div>Repository</div><i>→</i><div>Analysis</div><i>→</i><div>Evidence</div><i>→</i><div>Q&amp;A / Planner</div></div><div class="architecture-grid"><article><span class="kicker">DETERMINISTIC</span><h3>Repository facts</h3><p>Structure, dependencies, changes, architecture signals, and other repository-derived information form the evidence layer.</p></article><article><span class="kicker">GROUNDED</span><h3>Traceable answers</h3><p>Higher-level outputs can reference evidence rather than presenting unsupported repository claims.</p></article><article><span class="kicker">ACTIONABLE</span><h3>Engineering plans</h3><p>The planner turns grounded context into structured implementation and verification steps.</p></article></div></section>
 
-  <section id="demo" class="section container demo-section">
-    <div class="section-heading"><span class="kicker">03 / PROOF</span><h2>See the shape of an engineering decision.</h2><p>The production website will use generated sample artifacts so the experience remains static, reproducible, and honest about what GitHub Pages can execute.</p></div>
-    <div class="evidence-card">
-      <div class="evidence-header"><span>CHANGE PROOF</span><span class="status">GROUNDED</span></div>
-      <div class="evidence-body">
-        <div><small>CHANGE</small><strong>PaymentService</strong></div>
-        <div><small>AFFECTED</small><strong>3 components · 6 test candidates</strong></div>
-        <div><small>EVIDENCE</small><strong>E17 · E21 · E34</strong></div>
-        <div><small>UNCERTAINTY</small><strong>Runtime gateway behaviour requires integration verification.</strong></div>
-      </div>
-    </div>
-  </section>
+  <section id="demo" class="section container demo-section"><div class="section-heading"><span class="kicker">03 / PROOF</span><h2>See the shape of an engineering decision.</h2><p>The production website uses generated sample artifacts so the experience remains static, reproducible, and honest about what GitHub Pages can execute.</p></div><div class="evidence-card"><div class="evidence-header"><span>CHANGE PROOF</span><span class="status">GROUNDED</span></div><div class="evidence-body"><div><small>CHANGE</small><strong>PaymentService</strong></div><div><small>AFFECTED</small><strong>3 components · 6 test candidates</strong></div><div><small>EVIDENCE</small><strong>E17 · E21 · E34</strong></div><div><small>UNCERTAINTY</small><strong>Runtime gateway behaviour requires integration verification.</strong></div></div></div></section>
 
-  <section class="cta container">
-    <div><span class="kicker">OPEN SOURCE</span><h2>Explore the implementation.</h2><p>Read the code, run CodeContext, inspect the documentation, and contribute.</p></div>
-    <a class="button primary" href="https://github.com/sonii-shivansh/CodeContext">Open repository ↗</a>
-  </section>
+  <section class="cta container"><div><span class="kicker">OPEN SOURCE</span><h2>Explore the implementation.</h2><p>Read the code, run CodeContext, inspect the documentation, and contribute.</p></div><a class="button primary" href="https://github.com/sonii-shivansh/CodeContext">Open repository ↗</a></section>
 </BaseLayout>
 
 <style>
-  .hero { padding: 112px 0 40px; position: relative; }
-  .hero::before { content: ''; position: absolute; inset: 0 -30vw auto; height: 520px; z-index: -1; background: radial-gradient(circle at 50% 30%, rgb(115 213 255 / 10%), transparent 48%); pointer-events: none; }
-  .eyebrow, .kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; text-transform: uppercase; }
-  .eyebrow { display: flex; align-items: center; gap: 9px; margin-bottom: 26px; }
-  .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--success); box-shadow: 0 0 14px rgb(110 231 183 / 70%); }
-  h1 { max-width: 900px; margin: 0; font-size: clamp(3.2rem, 8vw, 6.8rem); line-height: .96; letter-spacing: -.065em; }
-  h1 span { color: var(--muted); }
-  .hero-copy { max-width: 700px; margin: 30px 0; color: var(--muted); font-size: clamp(1rem, 2vw, 1.25rem); }
-  .actions { display: flex; gap: 12px; flex-wrap: wrap; }
-  .button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: 0 18px; border-radius: 8px; text-decoration: none; font-weight: 650; font-size: .9rem; transition: transform .18s ease, border-color .18s ease; }
-  .button:hover { transform: translateY(-1px); }
-  .primary { background: var(--text); color: var(--bg); }
-  .secondary { border: 1px solid var(--line); background: var(--panel); }
-  .terminal { margin-top: 72px; border: 1px solid var(--line); border-radius: 12px; background: #080c12; box-shadow: 0 30px 80px rgb(0 0 0 / 30%); overflow: hidden; }
-  .terminal-bar { height: 42px; display: flex; align-items: center; gap: 7px; padding: 0 14px; border-bottom: 1px solid var(--line); color: var(--muted); font: .72rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .terminal-bar span { width: 8px; height: 8px; border-radius: 50%; background: var(--line); }
-  .terminal-bar strong { margin-left: 8px; font-weight: 500; }
-  pre { margin: 0; padding: 28px; overflow-x: auto; color: #cbd5e1; font: .82rem/1.8 ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .dim { color: var(--muted); } .ok { color: var(--success); } .warn { color: #fbbf24; } .accent { color: var(--accent); }
-  .section { padding-top: 120px; }
-  .section-heading { max-width: 800px; margin-bottom: 42px; }
-  .section-heading h2, .cta h2 { margin: 10px 0; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; letter-spacing: -.04em; }
-  .section-heading p, .cta p { color: var(--muted); max-width: 680px; }
-  .capability-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  .capability-card, .architecture-grid article, .evidence-card { border: 1px solid var(--line); background: var(--panel); border-radius: 10px; }
-  .capability-card { min-height: 190px; padding: 22px; }
-  .index { color: var(--muted); font: .72rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  h3 { margin: 28px 0 8px; font-size: 1rem; }
-  .capability-card p, .architecture-grid p { margin: 0; color: var(--muted); font-size: .88rem; }
-  .flow { display: flex; align-items: center; justify-content: center; gap: 14px; flex-wrap: wrap; padding: 32px; border: 1px solid var(--line); background: var(--panel); border-radius: 10px; font: .82rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .flow div { padding: 10px 14px; border: 1px solid var(--line); border-radius: 7px; background: var(--panel-2); }
-  .flow i { color: var(--accent); font-style: normal; }
-  .architecture-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
-  .architecture-grid article { padding: 24px; }
-  .architecture-grid h3 { margin-top: 18px; }
-  .demo-section { padding-bottom: 20px; }
-  .evidence-card { overflow: hidden; }
-  .evidence-header { display: flex; justify-content: space-between; padding: 14px 18px; border-bottom: 1px solid var(--line); font: 600 .7rem ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
-  .status { color: var(--success); }
-  .evidence-body { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); }
-  .evidence-body > div { padding: 24px; background: var(--panel); }
-  .evidence-body small { display: block; margin-bottom: 8px; color: var(--muted); font: .68rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .evidence-body strong { font-size: .9rem; font-weight: 550; }
-  .cta { margin-top: 120px; padding: 38px; display: flex; align-items: center; justify-content: space-between; gap: 30px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(120deg, var(--panel), #0b1018); }
-  @media (max-width: 900px) { .capability-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 650px) { .hero { padding-top: 78px; } .capability-grid, .architecture-grid, .evidence-body { grid-template-columns: 1fr; } .flow { justify-content: flex-start; } .flow i { transform: rotate(90deg); } .cta { flex-direction: column; align-items: flex-start; } }
-  @media (prefers-reduced-motion: reduce) { .button { transition: none; } }
+.hero{padding:112px 0 40px;position:relative}.hero::before{content:'';position:absolute;inset:0 -30vw auto;height:520px;z-index:-1;background:radial-gradient(circle at 50% 30%,rgb(115 213 255 / 10%),transparent 48%);pointer-events:none}.eyebrow,.kicker{color:var(--accent);font:600 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em;text-transform:uppercase}.eyebrow{display:flex;align-items:center;gap:9px;margin-bottom:26px}.pulse{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 14px rgb(110 231 183 / 70%)}h1{max-width:900px;margin:0;font-size:clamp(3.2rem,8vw,6.8rem);line-height:.96;letter-spacing:-.065em}h1 span{color:var(--muted)}.hero-copy{max-width:700px;margin:30px 0;color:var(--muted);font-size:clamp(1rem,2vw,1.25rem)}.actions{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;min-height:44px;align-items:center;justify-content:center;padding:0 18px;border-radius:8px;text-decoration:none;font-weight:650;font-size:.9rem;transition:transform .18s ease,border-color .18s ease}.button:hover{transform:translateY(-1px)}.primary{background:var(--text);color:var(--bg)}.secondary{border:1px solid var(--line);background:var(--panel)}.terminal{margin-top:72px;border:1px solid var(--line);border-radius:12px;background:#080c12;box-shadow:0 30px 80px rgb(0 0 0 / 30%);overflow:hidden}.terminal-bar{height:42px;display:flex;align-items:center;gap:7px;padding:0 14px;border-bottom:1px solid var(--line);color:var(--muted);font:.72rem ui-monospace,SFMono-Regular,Menlo,monospace}.terminal-bar span{width:8px;height:8px;border-radius:50%;background:var(--line)}.terminal-bar strong{margin-left:8px;font-weight:500}pre{margin:0;padding:28px;overflow-x:auto;color:#cbd5e1;font:.82rem/1.8 ui-monospace,SFMono-Regular,Menlo,monospace}.dim{color:var(--muted)}.ok{color:var(--success)}.warn{color:#fbbf24}.accent{color:var(--accent)}.section{padding-top:120px}.section-heading{max-width:800px;margin-bottom:42px}.section-heading h2,.cta h2{margin:10px 0;font-size:clamp(2rem,4vw,3.4rem);line-height:1.05;letter-spacing:-.04em}.section-heading p,.cta p{color:var(--muted);max-width:680px}.capability-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.capability-card,.architecture-grid article,.evidence-card{border:1px solid var(--line);background:var(--panel);border-radius:10px}.capability-card{min-height:190px;padding:22px}.index{color:var(--muted);font:.72rem ui-monospace,SFMono-Regular,Menlo,monospace}h3{margin:28px 0 8px;font-size:1rem}.capability-card p,.architecture-grid p{margin:0;color:var(--muted);font-size:.88rem}.flow{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;padding:32px;border:1px solid var(--line);background:var(--panel);border-radius:10px;font:.82rem ui-monospace,SFMono-Regular,Menlo,monospace}.flow div{padding:10px 14px;border:1px solid var(--line);border-radius:7px;background:var(--panel-2)}.flow i{color:var(--accent);font-style:normal}.architecture-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}.architecture-grid article{padding:24px}.architecture-grid h3{margin-top:18px}.demo-section{padding-bottom:20px}.evidence-card{overflow:hidden}.evidence-header{display:flex;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--line);font:600 .7rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em}.status{color:var(--success)}.evidence-body{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}.evidence-body>div{padding:24px;background:var(--panel)}.evidence-body small{display:block;margin-bottom:8px;color:var(--muted);font:.68rem ui-monospace,SFMono-Regular,Menlo,monospace}.evidence-body strong{font-size:.9rem;font-weight:550}.cta{margin-top:120px;padding:38px;display:flex;align-items:center;justify-content:space-between;gap:30px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(120deg,var(--panel),#0b1018)}
+@media(max-width:1000px){h1{font-size:clamp(3rem,8vw,5.4rem)}.capability-grid{grid-template-columns:repeat(2,1fr)}.architecture-grid{grid-template-columns:1fr 1fr}.architecture-grid article:last-child{grid-column:1/-1}}
+@media(max-width:700px){.hero{padding-top:78px}.section{padding-top:88px}.capability-grid,.architecture-grid,.evidence-body{grid-template-columns:1fr}.architecture-grid article:last-child{grid-column:auto}.flow{justify-content:flex-start;overflow-x:auto;flex-wrap:nowrap;scrollbar-width:thin;padding:20px}.flow i{flex:0 0 auto}.cta{margin-top:88px;flex-direction:column;align-items:flex-start;padding:26px}.terminal{margin-top:48px}.terminal-bar{padding-inline:12px}pre{padding:20px;font-size:.74rem}.hero-copy{margin-block:22px}.actions{width:100%}.actions .button{flex:1 1 180px}}
+@media(max-width:430px){h1{font-size:clamp(2.55rem,14vw,3.5rem)}.container{width:calc(100% - 24px)}.section-heading h2,.cta h2{font-size:2rem}.capability-card,.architecture-grid article,.evidence-body>div{padding:20px}.button{width:100%}.evidence-header{padding-inline:14px}.hero{padding-top:64px}}
+@media(prefers-reduced-motion:reduce){.button{transition:none}}
 </style>
