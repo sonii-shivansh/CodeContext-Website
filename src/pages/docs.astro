@@ -2,24 +2,27 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const docs = [
-  ['Architecture', 'System architecture and the relationships between CodeContext analysis layers.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/ARCHITECTURE.md'],
-  ['API', 'Current API surface and integration reference.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/API.md'],
-  ['Development', 'Project structure, development workflow, and contributor guidance.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/DEVELOPMENT.md'],
-  ['Data Privacy', 'Current data-handling and outbound-data transparency information.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/DATA_PRIVACY.md'],
-  ['Security', 'Security policy and reporting guidance.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/SECURITY.md']
+  ['Architecture', 'Current system architecture and the relationships between CodeContext analysis layers.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/ARCHITECTURE.md'],
+  ['API', 'Current local REST API surface, endpoints, boundaries, and usage reference.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/API.md'],
+  ['Development', 'Project structure, development workflow, testing, and contributor guidance.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/DEVELOPMENT.md'],
+  ['Data Privacy', 'Current local-first data handling, optional AI behavior, and outbound-data transparency.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/DATA_PRIVACY.md'],
+  ['PR Intelligence', 'Current pull-request intelligence model, evidence, and change analysis.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/docs/PR_INTELLIGENCE.md'],
+  ['Security', 'Security policy, current REST boundary, and vulnerability reporting guidance.', 'https://github.com/sonii-shivansh/CodeContext/blob/main/SECURITY.md']
 ];
 ---
 
 <BaseLayout title="Documentation — CodeContext" description="Authoritative CodeContext documentation and engineering references.">
-  <section class="hero container"><span class="kicker">DOCUMENTATION</span><h1>Read the source of truth.<br /><span>Then inspect the code.</span></h1><p>The website provides navigation and context; the CodeContext repository remains authoritative for implementation details.</p></section>
+  <section class="hero container"><span class="kicker">DOCUMENTATION</span><h1>Read the source of truth.<br /><span>Then inspect the code.</span></h1><p>The website provides navigation and product context; the CodeContext repository remains authoritative for implementation details and current behavior.</p></section>
   <section class="container grid">
     {docs.map(([title, description, href]) => <a class="card" href={href}><span class="kicker">REFERENCE</span><h2>{title} ↗</h2><p>{description}</p></a>)}
   </section>
+  <section class="container note"><span class="kicker">CURRENT RELEASE</span><h2>CodeContext v0.6.0</h2><p>For installation, platform artifacts, checksums, and release notes, use the GitHub release as the authoritative distribution source.</p><a href="https://github.com/sonii-shivansh/CodeContext/releases/tag/v0.6.0">View v0.6.0 ↗</a></section>
 </BaseLayout>
 
 <style>
   .hero { padding: 110px 0 65px; max-width: 960px; }.kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }
-  h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; } h1 span { color: var(--muted); }.hero p { max-width: 700px; color: var(--muted); }
+  h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; } h1 span { color: var(--muted); }.hero p { max-width: 720px; color: var(--muted); }
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }.card { padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); text-decoration: none; }.card:hover { border-color: #304155; }.card h2 { margin: 16px 0 7px; font-size: 1.3rem; }.card p { margin: 0; color: var(--muted); }
+  .note { margin-top: 70px; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }.note h2 { margin: 10px 0 5px; }.note p { color: var(--muted); }.note a { color: var(--accent); text-underline-offset: 4px; }
   @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
 </style>
