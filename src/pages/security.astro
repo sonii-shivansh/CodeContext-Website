@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Security & Privacy — CodeContext" description="Current CodeContext security, privacy, and transparency information.">
+  <section class="hero container">
+    <span class="kicker">TRUST / TRANSPARENCY</span>
+    <h1>Know what CodeContext<br /><span>does with your data.</span></h1>
+    <p>This page describes the current implementation. It is intentionally limited to behavior that exists today.</p>
+  </section>
+
+  <section class="container grid">
+    <article><span class="kicker">LOCAL ANALYSIS</span><h2>Repository analysis</h2><p>Deterministic repository analysis runs as part of the CodeContext application. The website itself does not upload your repository for this static demonstration.</p></article>
+    <article><span class="kicker">AI / OPT-IN</span><h2>Provider boundaries</h2><p>AI-assisted workflows are opt-in. When configured, bounded repository-derived context may be sent to the selected provider as required by that workflow.</p></article>
+    <article><span class="kicker">REPORTS</span><h2>Generated HTML</h2><p>Generated graph reports may reference the external force-graph browser library. The analyzed graph data remains embedded in the generated report; the library request is a browser-side dependency.</p></article>
+    <article><span class="kicker">SOURCE</span><h2>Inspect the implementation</h2><p>CodeContext is open source. The exact implementation, configuration, and current behavior can be inspected directly in the repository.</p></article>
+  </section>
+
+  <section class="container links">
+    <a href="https://github.com/sonii-shivansh/CodeContext/blob/main/docs/DATA_PRIVACY.md">Read the detailed transparency document ↗</a>
+    <a href="https://github.com/sonii-shivansh/CodeContext/blob/main/SECURITY.md">Read the security policy ↗</a>
+    <a href="https://github.com/sonii-shivansh/CodeContext/issues">Report an issue ↗</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 110px 0 65px; max-width: 960px; }.kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+  h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; } h1 span { color: var(--muted); }.hero p { max-width: 700px; color: var(--muted); font-size: 1.1rem; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }.grid article { min-height: 210px; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }.grid h2 { margin: 15px 0 8px; font-size: 1.3rem; }.grid p { color: var(--muted); }
+  .links { margin-top: 70px; display: grid; gap: 8px; }.links a { padding: 18px; border: 1px solid var(--line); border-radius: 9px; text-decoration: none; background: var(--panel); }.links a:hover { border-color: #304155; }
+  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+</style>

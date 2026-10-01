@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const files = [
+  ['PaymentService', 'service', 'changed'],
+  ['PaymentRepository', 'repository', 'affected'],
+  ['FraudService', 'service', 'affected'],
+  ['PaymentController', 'controller', 'affected'],
+  ['PaymentServiceTest', 'test', 'verify']
+];
+---
+
+<BaseLayout title="Interactive Demo — CodeContext" description="Explore a static, reproducible CodeContext engineering evidence example.">
+  <section class="hero container">
+    <span class="kicker">INTERACTIVE PROOF</span>
+    <h1>Follow a change<br /><span>through the repository.</span></h1>
+    <p>This demo is a committed sample artifact. It does not pretend to execute CodeContext in the browser; it shows the shape of the evidence and decisions produced by the platform.</p>
+  </section>
+
+  <section class="container workspace">
+    <div class="workspace-head"><div><span class="kicker">SAMPLE REPOSITORY</span><h2>payment-service</h2></div><span class="badge">ANALYSIS SNAPSHOT</span></div>
+    <div class="workspace-grid">
+      <aside class="files" aria-label="Sample repository files">
+        <span class="label">AFFECTED FILES</span>
+        {files.map(([name, type, state]) => <button class={`file ${state}`} type="button"><span>{name}</span><small>{type}</small></button>)}
+      </aside>
+      <div class="detail">
+        <div class="detail-title"><span class="kicker">CHANGE IMPACT</span><strong>PaymentService</strong></div>
+        <div class="graph" aria-label="Change impact graph">
+          <div class="graph-node changed">PaymentService<small>changed</small></div>
+          <div class="edge e1"></div><div class="edge e2"></div><div class="edge e3"></div>
+          <div class="graph-node n2">PaymentRepository<small>affected</small></div>
+          <div class="graph-node n3">FraudService<small>affected</small></div>
+          <div class="graph-node n4">PaymentController<small>affected</small></div>
+        </div>
+        <div class="evidence">
+          <div><small>EVIDENCE E17</small><p>PaymentService → PaymentRepository</p></div>
+          <div><small>EVIDENCE E21</small><p>PaymentController → PaymentService</p></div>
+          <div><small>EVIDENCE E34</small><p>Recent change touches fraud flow</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container decision">
+    <div><span class="kicker">ENGINEERING DECISION</span><h2>What should happen next?</h2></div>
+    <ol>
+      <li>Inspect affected contracts and repository boundaries.</li>
+      <li>Update the implementation with the affected components in view.</li>
+      <li>Verify impacted tests and integration behavior.</li>
+    </ol>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding: 110px 0 65px; max-width: 920px; }
+  .kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
+  h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; }
+  h1 span { color: var(--muted); }
+  .hero p { max-width: 740px; color: var(--muted); font-size: 1.15rem; }
+  .workspace { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); overflow: hidden; }
+  .workspace-head { min-height: 86px; padding: 20px 24px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  h2 { margin: 7px 0 0; font-size: 1.4rem; }
+  .badge { padding: 6px 9px; border: 1px solid #365f52; border-radius: 999px; color: var(--success); font: .65rem ui-monospace, monospace; }
+  .workspace-grid { display: grid; grid-template-columns: 260px 1fr; min-height: 500px; }
+  .files { padding: 20px; border-right: 1px solid var(--line); }
+  .label { display: block; margin-bottom: 12px; color: var(--muted); font: .65rem ui-monospace, monospace; letter-spacing: .1em; }
+  .file { width: 100%; padding: 12px; margin-bottom: 6px; border: 1px solid transparent; border-radius: 7px; background: transparent; color: var(--text); display: flex; justify-content: space-between; text-align: left; cursor: default; font: .78rem ui-monospace, monospace; }
+  .file small { color: var(--muted); }.file.changed { border-color: #31536a; background: #0e1922; }.file.affected { background: #111823; }.file.verify { color: var(--success); }
+  .detail { padding: 28px; }.detail-title { display: grid; gap: 7px; }
+  .graph { position: relative; min-height: 300px; margin: 25px 0; border: 1px solid var(--line); border-radius: 10px; background: radial-gradient(circle at center, #101925, var(--panel)); }
+  .graph-node { position: absolute; width: 145px; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: #0a1017; font: .72rem ui-monospace, monospace; z-index: 2; }.graph-node small { display: block; margin-top: 4px; color: var(--muted); }.graph-node.changed { left: 50%; top: 38%; transform: translate(-50%, -50%); border-color: #31536a; }.n2 { left: 8%; top: 12%; }.n3 { right: 7%; top: 12%; }.n4 { left: 50%; bottom: 8%; transform: translateX(-50%); }
+  .edge { position: absolute; height: 1px; background: #36566d; transform-origin: left center; left: 50%; top: 38%; width: 30%; }.e1 { transform: rotate(-36deg); }.e2 { transform: rotate(36deg); }.e3 { transform: rotate(90deg); width: 20%; }
+  .evidence { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }.evidence div { padding: 16px; border: 1px solid var(--line); border-radius: 8px; }.evidence small { color: var(--accent); font: .62rem ui-monospace, monospace; }.evidence p { margin: 8px 0 0; color: var(--muted); font-size: .78rem; }
+  .decision { margin-top: 80px; padding: 30px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }.decision ol { margin: 0; padding-left: 22px; color: var(--muted); }.decision li { padding: 7px 0; }
+  @media (max-width: 750px) { .workspace-grid, .decision { grid-template-columns: 1fr; }.files { border-right: 0; border-bottom: 1px solid var(--line); }.evidence { grid-template-columns: 1fr; } }
+</style>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sonii-shivansh.github.io/CodeContext-Website/sitemap-index.xml

@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page not found — CodeContext" description="The requested CodeContext website page was not found.">
+  <section class="container not-found">
+    <span class="kicker">404 / NOT FOUND</span>
+    <h1>The page moved.<br /><span>The repository didn't.</span></h1>
+    <p>Return to the CodeContext website or inspect the source repository.</p>
+    <div class="actions"><a href={import.meta.env.BASE_URL} class="button primary">Back to CodeContext</a><a href="https://github.com/sonii-shivansh/CodeContext" class="button secondary">Open GitHub ↗</a></div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; }.kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, monospace; letter-spacing: .12em; }.not-found h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; }.not-found h1 span { color: var(--muted); }.not-found p { color: var(--muted); }.actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }.button { min-height: 44px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 8px; text-decoration: none; font-weight: 650; }.primary { background: var(--text); color: var(--bg); }.secondary { border: 1px solid var(--line); background: var(--panel); }
+</style>
