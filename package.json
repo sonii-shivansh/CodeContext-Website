@@ -14,5 +14,8 @@
     "@astrojs/check": "latest",
     "astro": "latest",
     "typescript": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0"
   }
 }
