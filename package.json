@@ -11,11 +11,14 @@
     "verify:routes": "node scripts/verify-routes.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "latest",
-    "astro": "latest",
-    "typescript": "latest"
+    "@astrojs/check": "0.9.10",
+    "astro": "7.3.3",
+    "typescript": "6.0.3"
   },
   "devDependencies": {
     "@types/node": "^24.0.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
