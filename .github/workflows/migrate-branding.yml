@@ -9,17 +9,40 @@ permissions:
 
 jobs:
   audit:
+    name: audit (${{ matrix.file }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        file:
+          - README.md
+          - astro.config.mjs
+          - package.json
+          - docs/IMPLEMENTATION_PLAN.md
+          - docs/WEBSITE_SPEC.md
+          - public/robots.txt
+          - public/sitemap-index.xml
+          - public/sitemap.xml
+          - scripts/verify-routes.mjs
+          - src/data/demo.ts
+          - src/layouts/BaseLayout.astro
+          - src/pages/404.astro
+          - src/pages/architecture.astro
+          - src/pages/capabilities.astro
+          - src/pages/demo.astro
+          - src/pages/docs.astro
+          - src/pages/how-to-use.astro
+          - src/pages/index.astro
+          - src/pages/releases.astro
+          - src/pages/security.astro
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Verify no legacy branding remains
+      - name: Verify file has no legacy branding
         shell: bash
         run: |
           set -euo pipefail
-          if git grep -n -E 'Code[C]ontext|code[c]ontext|CODE[C]ONTEXT|Code[C]ontext-Website' -- ':!.github/workflows/migrate-branding.yml'; then
-            echo 'Legacy CodeContext branding remains.'
+          if grep -n -E 'Code[C]ontext|code[c]ontext|CODE[C]ONTEXT|Code[C]ontext-Website' "${{ matrix.file }}"; then
+            echo "Legacy branding found in ${{ matrix.file }}"
             exit 1
           fi
-          echo 'No legacy CodeContext branding remains in the repository snapshot.'
