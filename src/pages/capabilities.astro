@@ -2,22 +2,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const capabilities = [
-  ['01', 'Repository Intelligence', 'Build a structural model of files, symbols, modules, and relationships so engineers can reason about an unfamiliar repository.'],
-  ['02', 'Dependency Intelligence', 'Trace dependency relationships and connected components to expose the surface area behind a proposed change.'],
-  ['03', 'Change Intelligence', 'Connect source changes with affected areas and repository evidence so impact is explicit rather than guessed.'],
-  ['04', 'PR Intelligence', 'Turn pull-request diffs into structured engineering context for review, risk inspection, and follow-up verification.'],
-  ['05', 'Architecture Intelligence', 'Surface architectural relationships and boundaries from repository-derived evidence.'],
-  ['06', 'Grounded Evidence', 'Keep higher-level engineering conclusions anchored to identifiable evidence from the analyzed repository.'],
-  ['07', 'Repository Q&A', 'Ask questions against repository context and receive answers grounded in the available evidence rather than generic assumptions.'],
-  ['08', 'Engineering Planner', 'Transform repository context into structured implementation and verification plans before code changes begin.']
+  ['01', 'Repository Intelligence', 'Build a structural model of Java and Kotlin repositories, files, symbols, modules, and relationships.'],
+  ['02', 'Dependency & Graph Intelligence', 'Construct dependency relationships, connected components, cycles, and PageRank knowledge hotspots.'],
+  ['03', 'Git Evolution', 'Use authorship, churn, history, and evolution signals to add temporal context to repository analysis.'],
+  ['04', 'Change Impact', 'Traverse reverse dependencies and combine graph, PageRank, churn, and package signals to expose affected areas.'],
+  ['05', 'PR Intelligence', 'Turn pull-request diffs into structured engineering context for review, impact inspection, risk signals, and verification follow-up.'],
+  ['06', 'Architecture Intelligence', 'Inspect architecture relationships, architecture drift, and deterministic architecture contracts.'],
+  ['07', 'Engineering Context', 'Create deterministic context snapshots and diffs that capture the repository signals used by downstream workflows.'],
+  ['08', 'Engineering Reality', 'Bind analysis to repository state with a deterministic identity so stale analysis can be rejected.'],
+  ['09', 'Grounded Evidence & Q&A', 'Retrieve bounded repository evidence and use it to answer engineering questions without making generic model knowledge the source of truth.'],
+  ['10', 'Engineering Planner', 'Transform grounded evidence into structured implementation steps, affected components, risks, uncertainties, and verification commands.'],
+  ['11', 'Agent Change Contracts', 'Persist a repository-bound change boundary with planned paths, evidence, verification, and a SHA-256 contract fingerprint.'],
+  ['12', 'Prepare → Change → Verify', 'Prepare before implementation, allow the change to happen independently, then verify against the original persisted contract.'],
+  ['13', 'REST API & MCP', 'Expose local intelligence through Ktor REST and an MCP stdio server for trusted integrations and AI agents.'],
+  ['14', 'Optional AI Assistance', 'Send bounded repository-derived context to a configured AI provider only when AI-assisted workflows are explicitly used.']
 ];
 ---
 
-<BaseLayout title="Capabilities — Vericore" description="Explore the currently implemented Vericore engineering intelligence capabilities.">
+<BaseLayout title="Capabilities — Vericore" description="Explore the currently implemented Vericore 0.7.0 engineering intelligence capabilities.">
   <section class="hero container">
-    <span class="kicker">CAPABILITIES</span>
+    <span class="kicker">VERICORE 0.7.0 / CAPABILITIES</span>
     <h1>One repository.<br /><span>Many engineering signals.</span></h1>
-    <p>Vericore connects repository structure, dependencies, changes, architecture, evidence, questions, and planning into one engineering context layer.</p>
+    <p>Vericore connects repository structure, dependencies, Git evolution, changes, architecture, evidence, engineering context, planning, and verification into one local-first engineering intelligence layer.</p>
   </section>
 
   <section class="container grid">
@@ -31,8 +37,13 @@ const capabilities = [
   </section>
 
   <section class="container principle">
-    <div><span class="kicker">DESIGN PRINCIPLE</span><h2>Facts first. Reasoning second.</h2></div>
-    <p>Deterministic repository analysis provides the factual substrate. Grounded workflows then use that evidence to produce context, answers, and plans. The website deliberately avoids claiming capabilities that are not present in the implementation.</p>
+    <div><span class="kicker">CORE PRINCIPLE</span><h2>Deterministic evidence first.</h2></div>
+    <p>Repository-derived facts form the evidence boundary. Engineering Context and Engineering Reality make that state explicit. Grounded Q&amp;A and planning consume bounded evidence, while optional AI adds reasoning without becoming the source of repository truth.</p>
+  </section>
+
+  <section class="container safety">
+    <div><span class="kicker">CHANGE SAFETY</span><h2>Prepare before you change. Verify what you actually changed.</h2></div>
+    <p>The 0.7.0 safety loop persists an Agent Change Contract during <code>prepare</code>. Verification checks that original contract rather than silently generating a new plan after the repository has changed.</p>
   </section>
 </BaseLayout>
 
@@ -41,15 +52,16 @@ const capabilities = [
   .kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
   h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; }
   h1 span { color: var(--muted); }
-  .hero p { max-width: 720px; color: var(--muted); font-size: 1.15rem; }
+  .hero p { max-width: 760px; color: var(--muted); font-size: 1.15rem; }
   .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-  .card { min-height: 230px; padding: 30px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); transition: border-color .2s ease, transform .2s ease; }
+  .card { min-height: 210px; padding: 30px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); transition: border-color .2s ease, transform .2s ease; }
   .card:hover { border-color: #304155; transform: translateY(-2px); }
   .number { color: var(--muted); font: .75rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  h2 { margin: 28px 0 10px; font-size: 1.35rem; letter-spacing: -.025em; }
-  .card p, .principle p { color: var(--muted); }
-  .principle { margin-top: 90px; padding: 32px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
-  .principle h2 { margin-top: 12px; font-size: 2rem; }
-  @media (max-width: 700px) { .grid, .principle { grid-template-columns: 1fr; } .principle { gap: 10px; } }
+  h2 { margin: 24px 0 10px; font-size: 1.35rem; letter-spacing: -.025em; }
+  .card p, .principle p, .safety p { color: var(--muted); line-height: 1.65; }
+  .principle,.safety { margin-top: 90px; padding: 32px; display: grid; grid-template-columns: 1fr 1.4fr; gap: 50px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+  .principle h2,.safety h2 { margin-top: 12px; font-size: 2rem; }
+  code { padding: .15rem .35rem; border-radius: 5px; background: var(--panel-2); font: .85em ui-monospace, SFMono-Regular, Menlo, monospace; }
+  @media (max-width: 700px) { .grid, .principle, .safety { grid-template-columns: 1fr; } .principle,.safety { gap: 10px; } }
   @media (prefers-reduced-motion: reduce) { .card { transition: none; } }
 </style>
