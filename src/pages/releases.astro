@@ -2,9 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const releases = [
-  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Current stable CodeContext release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', true],
+  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Previous published release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', true],
   ['v0.5.0', 'Engineering Intelligence Foundation', 'Previous published milestone covering repository, change, PR, architecture, evidence, Q&A, and planning capabilities.', false],
-  ['v0.2.0', 'CodeContext release', 'Previous published release in the product line.', false]
+  ['v0.2.0', 'Earlier release', 'Earlier published release in the product line.', false]
 ];
 ---
 
@@ -22,7 +22,7 @@ const releases = [
   <section class="container releases">
     {releases.map(([version, title, description, current]) => (
       <article class:list={{ release: true, currentRelease: current }}>
-        <div><span class="version">{version}</span><h2>{title}</h2><p>{description.replaceAll('CodeContext', 'Vericore')}</p></div>
+        <div><span class="version">{version}</span><h2>{title}</h2><p>{description}</p></div>
         <a href={`https://github.com/sonii-shivansh/Vericore/releases/tag/${version}`}>View release ↗</a>
       </article>
     ))}
