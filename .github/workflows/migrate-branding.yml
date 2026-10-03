@@ -18,7 +18,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git grep -n -E 'CodeContext|codecontext|CODECONTEXT|CodeContext-Website'; then
+          if git grep -n -E 'Code[C]ontext|code[c]ontext|CODE[C]ONTEXT|Code[C]ontext-Website' -- ':!.github/workflows/migrate-branding.yml'; then
             echo 'Legacy CodeContext branding remains.'
             exit 1
           fi
