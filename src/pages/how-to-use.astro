@@ -2,49 +2,39 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="How to Use Vericore" description="A practical guide to installing, analyzing, exploring, planning, and verifying with Vericore 0.7.0.">
+<BaseLayout title="How to Use Vericore" description="A practical guide to installing, analyzing, exploring, planning, governing, and verifying with Vericore 0.7.0.">
   <main class="container page">
-    <header class="hero">
-      <p class="eyebrow">VERICORE 0.7.0</p>
-      <h1>Understand. Change. Verify.</h1>
-      <p class="lead">Go from a fresh installation to repository-grounded engineering decisions and a repository-bound verification boundary.</p>
-    </header>
-
+    <header class="hero"><p class="eyebrow">VERICORE 0.7.0</p><h1>Understand. Change. Verify.</h1><p class="lead">Go from a fresh installation to repository-grounded engineering decisions and a repository-bound verification boundary.</p></header>
     <section class="steps">
-      <article class="step"><span>01</span><div><h2>Install Vericore</h2><p>Download the current release for your platform. Released archives bundle the Java runtime for normal end-user use.</p><pre><code>vericore --version
+      <article class="step"><span>01</span><div><h2>Install and diagnose</h2><p>Released archives bundle the Java runtime for normal end-user use. Use setup and doctor before your first analysis.</p><pre><code>vericore --version
 vericore setup
 vericore doctor</code></pre></div></article>
-      <article class="step"><span>02</span><div><h2>Analyze a repository</h2><p>Run deterministic analysis locally. Vericore builds source, dependency, Git, architecture, and engineering signals.</p><pre><code>cd your-project
+      <article class="step"><span>02</span><div><h2>Analyze a repository</h2><p>Run deterministic analysis locally. Vericore builds source, dependency, Git, architecture, evolution, and report artifacts.</p><pre><code>cd your-project
 vericore analyze .
 vericore reality . --json</code></pre></div></article>
-      <article class="step"><span>03</span><div><h2>Explore the intelligence</h2><p>Inspect repository structure, PageRank hotspots, cycles, Git evolution, change impact, PR Intelligence, and Architecture Intelligence.</p></div></article>
-      <article class="step"><span>04</span><div><h2>Ask grounded questions</h2><p>Use repository Q&amp;A to retrieve bounded evidence before answering engineering questions. AI assistance is optional.</p><pre><code>vericore repo-qa "why is PaymentService risky?" --path /path/to/repository</code></pre></div></article>
-      <article class="step"><span>05</span><div><h2>Understand a change</h2><p>Use impact, PR Intelligence, architecture drift, and architecture contracts to understand affected areas and governance signals.</p><pre><code>vericore impact /path/to/repository src/main/Service.kt --json
+      <article class="step"><span>03</span><div><h2>Inspect state and evolution</h2><p>Capture context snapshots, compare them, and inspect Git evolution without treating historical metrics as a semantic reconstruction of every past commit.</p><pre><code>vericore context-snapshot /path/to/repository --json
+vericore context-diff /path/to/before.json /path/to/after.json --json
+vericore evolution /path/to/repository</code></pre></div></article>
+      <article class="step"><span>04</span><div><h2>Ask grounded questions</h2><p>Retrieve bounded evidence for dependency, risk, impact, architecture, PR, or test-oriented questions. AI assistance is optional.</p><pre><code>vericore repo-qa "why is PaymentService risky?" --path /path/to/repository
+vericore ask "What are the main architectural hotspots in this repository?"</code></pre></div></article>
+      <article class="step"><span>05</span><div><h2>Understand change and architecture</h2><p>Use impact and PR Intelligence for affected areas, then use architecture drift and contracts when an explicit governance baseline exists.</p><pre><code>vericore impact /path/to/repository src/main/Service.kt --json
 vericore pr-intelligence /path/to/repository --json
-vericore architecture-drift /path/to/repository --baseline /path/to/architecture-baseline.json --json</code></pre></div></article>
-      <article class="step"><span>06</span><div><h2>Prepare the change</h2><p>Generate an evidence-backed engineering plan and a repository-bound Agent Change Contract before implementation begins.</p><pre><code>vericore prepare "add payment validation" --path /path/to/repository</code></pre></div></article>
+vericore architecture-drift /path/to/repository --baseline /path/to/architecture-baseline.json --json
+vericore architecture-contract /path/to/repository --contract /path/to/.vericore-architecture-contract.json --json</code></pre></div></article>
+      <article class="step"><span>06</span><div><h2>Prepare the change</h2><p>Generate an evidence-backed engineering plan and a repository-bound Agent Change Contract before implementation begins.</p><pre><code>vericore prepare "add payment validation" --path /path/to/repository</code></pre><p>The persisted contract becomes the verification boundary.</p></div></article>
       <article class="step"><span>07</span><div><h2>Implement, then verify</h2><p>Make the change outside Vericore, then verify against the original persisted contract. Do not replace it with a newly generated contract.</p><pre><code>vericore verify \
   --path /path/to/repository \
   --plan output/engineering-plan.json \
   --contract output/agent-change-contract.json</code></pre></div></article>
-      <article class="step"><span>08</span><div><h2>Integrate with REST or MCP</h2><p>Use the local Ktor server or MCP stdio interface for trusted local/internal integrations and AI-agent workflows.</p><pre><code>vericore server --host 127.0.0.1 --port 8080
+      <article class="step"><span>08</span><div><h2>Integrate locally</h2><p>Use the local Ktor server or MCP stdio interface for trusted local/internal integrations and AI-agent workflows. Keep REST on loopback unless you provide the missing deployment security boundary.</p><pre><code>vericore server --host 127.0.0.1 --port 8080
 vericore mcp</code></pre></div></article>
     </section>
-
-    <section class="trust">
-      <h2>Local-first by design</h2>
-      <div class="grid">
-        <div><strong>Deterministic first</strong><p>Repository structure and core intelligence are produced locally and reproducibly.</p></div>
-        <div><strong>AI is optional</strong><p>AI-assisted workflows can add explanation and planning without replacing repository evidence.</p></div>
-        <div><strong>Persisted safety boundary</strong><p>The Agent Change Contract captures the prepared change boundary and is the basis for post-change verification.</p></div>
-      </div>
-    </section>
-
-    <section class="next"><h2>Ready to try it?</h2><p>Start with v0.7.0, inspect the generated artifacts, and follow the prepare → change → verify workflow.</p><div class="actions"><a href="https://github.com/sonii-shivansh/Vericore/releases/latest">Download Vericore</a><a href="/docs">Read the documentation</a></div></section>
+    <section class="trust"><h2>Local-first by design</h2><div class="grid"><div><strong>Deterministic first</strong><p>Repository structure and core intelligence are produced locally and reproducibly.</p></div><div><strong>AI is optional</strong><p>Configured Gemini/Anthropic workflows can add reasoning without replacing repository evidence.</p></div><div><strong>Persisted safety boundary</strong><p>The Agent Change Contract captures the prepared change boundary and is the basis for post-change verification.</p></div></div></section>
+    <section class="artifacts"><h2>What gets produced?</h2><p>The exact artifact set depends on the workflow, but 0.7.0 can produce self-contained HTML reports plus machine-readable snapshots, context, evidence, plans, contracts, provenance, and architecture decision artifacts.</p><div class="artifact-list"><code>analysis-snapshot.json</code><code>engineering-context.json</code><code>engineering-plan.json</code><code>agent-change-contract.json</code><code>reality / evidence artifacts</code></div></section>
+    <section class="next"><h2>Ready to try it?</h2><p>Start with v0.7.0, inspect the generated artifacts, and follow the prepare → change → verify workflow.</p><div class="actions"><a href="https://github.com/sonii-shivansh/Vericore/releases/latest">Download Vericore</a><a href="/Vericore-Website/docs/">Read the documentation</a></div></section>
   </main>
 </BaseLayout>
 
 <style>
-  .page{padding:5rem 1.25rem 7rem}.hero{max-width:800px;margin-bottom:4rem}.eyebrow{font-weight:700;letter-spacing:.12em;font-size:.78rem}.hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:.98;margin:.6rem 0 1.25rem}.lead{font-size:1.2rem;line-height:1.7;opacity:.75}.steps{display:grid;gap:1rem;max-width:900px}.step{display:grid;grid-template-columns:64px 1fr;gap:1.5rem;padding:2rem;border:1px solid var(--border);border-radius:18px;background:var(--surface)}.step>span{font-weight:800;font-size:1.1rem;opacity:.45}.step h2{margin:0 0 .6rem}.step p{line-height:1.7;opacity:.78;margin:.3rem 0 1rem}.step pre{padding:1rem;border-radius:12px;overflow:auto;background:var(--code-bg,var(--surface));border:1px solid var(--border)}.trust{margin:5rem 0}.trust h2,.next h2{font-size:2rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.grid>div{padding:1.5rem;border:1px solid var(--border);border-radius:16px}.grid p{line-height:1.6;opacity:.75}.next{padding:2rem;border:1px solid var(--border);border-radius:20px}.actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}.actions a{padding:.8rem 1.1rem;border:1px solid var(--border);border-radius:10px;text-decoration:none;font-weight:700}.actions a:first-child{background:var(--text);color:var(--background)}
-  @media(max-width:700px){.page{padding-top:3rem}.step{grid-template-columns:1fr;padding:1.4rem}.grid{grid-template-columns:1fr}.hero{margin-bottom:2.5rem}}
+.page{padding:5rem 1.25rem 7rem}.hero{max-width:800px;margin-bottom:4rem}.eyebrow{font-weight:700;letter-spacing:.12em;font-size:.78rem}.hero h1{font-size:clamp(2.5rem,7vw,5rem);line-height:.98;margin:.6rem 0 1.25rem}.lead{font-size:1.2rem;line-height:1.7;opacity:.75}.steps{display:grid;gap:1rem;max-width:980px}.step{display:grid;grid-template-columns:64px 1fr;gap:1.5rem;padding:2rem;border:1px solid var(--border,var(--line));border-radius:18px;background:var(--surface,var(--panel))}.step>span{font-weight:800;font-size:1.1rem;opacity:.45}.step h2{margin:0 0 .6rem}.step p{line-height:1.7;opacity:.78;margin:.3rem 0 1rem}.step pre{padding:1rem;border-radius:12px;overflow:auto;background:var(--code-bg,var(--panel-2));border:1px solid var(--border,var(--line))}.trust,.artifacts{margin:5rem 0}.trust h2,.artifacts h2,.next h2{font-size:2rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.grid>div{padding:1.5rem;border:1px solid var(--border,var(--line));border-radius:16px}.grid p,.artifacts p{line-height:1.6;opacity:.75}.artifact-list{display:flex;flex-wrap:wrap;gap:8px}.artifact-list code{padding:9px 11px;border:1px solid var(--line);border-radius:8px;color:var(--accent);background:var(--panel)}.next{padding:2rem;border:1px solid var(--border,var(--line));border-radius:20px}.actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}.actions a{padding:.8rem 1.1rem;border:1px solid var(--border,var(--line));border-radius:10px;text-decoration:none;font-weight:700}.actions a:first-child{background:var(--text);color:var(--bg)}@media(max-width:700px){.page{padding-top:3rem}.step{grid-template-columns:1fr;padding:1.4rem}.grid{grid-template-columns:1fr}.hero{margin-bottom:2.5rem}}
 </style>
