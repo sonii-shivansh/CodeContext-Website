@@ -1,45 +1,51 @@
 # Vericore Website Implementation Plan
 
-## Phase 1 — Foundation
+## Phase 1 — Foundation — Complete
 
-- Initialize Astro + TypeScript.
-- Establish design tokens, typography, spacing, responsive breakpoints, focus states, and reduced-motion behavior.
-- Add reusable layout, navigation, footer, buttons, cards, code panels, evidence panels, and diagram primitives.
-- Configure GitHub Pages base path and production build.
-- Add pull-request CI and production deployment workflow.
+- Astro + TypeScript static site.
+- Shared design tokens, responsive layout, focus states, and reduced-motion behavior.
+- Reusable layout, navigation, footer, buttons, cards, code panels, evidence panels, and diagrams.
+- GitHub Pages base path and production build.
+- Pull-request CI and production deployment workflow.
 
-## Phase 2 — Product site
+## Phase 2 — Vericore 0.7.0 product alignment — Complete
 
-- Build homepage using only verified current Vericore capabilities.
-- Add capability pages/sections for repository, dependency, change, PR, architecture, grounded evidence, Q&A, and engineering planning.
-- Add architecture and workflow explanations.
-- Add installation and quick-start examples.
-- Add security/privacy and community links.
+- Homepage positioned around **Understand. Change. Verify.**
+- Current 0.7.0 capabilities represented without roadmap claims.
+- Repository, dependency, Git/evolution, impact, PR, architecture, context, Reality, evidence, planning, contracts, REST, MCP, and AI boundaries documented.
+- Installation and current CLI workflows updated.
+- Security/privacy page aligned with local-first behavior and current limitations.
+- Release page aligned with the published v0.7.0 release.
 
-## Phase 3 — Interactive proof
+## Phase 3 — Interactive proof — Complete
 
-- Generate or curate committed sample analysis artifacts from Vericore.
-- Build a static interactive artifact explorer.
-- Visualize repository structure, dependency graph, change impact, evidence references, and planner output.
-- Provide accessible text equivalents for graph visualizations.
+- Static interactive artifact explorer.
+- Repository structure and dependency graph.
+- Change impact.
+- Grounded evidence.
+- Engineering plan.
+- Persisted Agent Change Contract and verification boundary.
+- Engineering Reality state-boundary view.
+- Explicit labeling that sample values are not live repository data.
 
-## Phase 4 — Documentation and GitHub integration
+## Phase 4 — Documentation and GitHub integration — Complete
 
-- Link to authoritative Vericore documentation.
-- Add release information sourced from GitHub where practical.
-- Add repository, issues, contribution, and release links.
-- Add website link to Vericore README after the website is production-ready.
+- Authoritative Vericore documentation links.
+- Current v0.7.0 release link.
+- Repository, issue, security, and implementation-status links.
+- Website specification updated to reflect the shipped product.
 
-## Phase 5 — Verification and polish
+## Phase 5 — Verification and polish — Ongoing
 
-- Type-check and lint.
-- Production build.
-- Link validation.
-- Accessibility checks.
-- Responsive/mobile checks through automated tooling where available.
-- Verify GitHub Pages artifact and deployment.
-- Optimize asset sizes and client JavaScript.
+- Type-check and production build on every pull request.
+- Production route verification before deployment.
+- Keep website claims synchronized with the Vericore repository when implementation changes.
+- Continue accessibility, responsive, content-integrity, and visual regression improvements as the product evolves.
 
 ## Execution rule
 
 Do not merge a phase until its CI checks pass. If a check fails, diagnose the root cause, fix it, and rerun the relevant verification. Do not mask failures or weaken checks merely to obtain a green build.
+
+## Source-of-truth rule
+
+When website copy and product behavior disagree, the implemented Vericore code, executable tests, public schemas, and authoritative documentation take precedence. The website must be corrected rather than used to redefine the product contract.
