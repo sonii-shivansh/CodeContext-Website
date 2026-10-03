@@ -1,4 +1,4 @@
-# CodeContext Website Implementation Plan
+# Vericore Website Implementation Plan
 
 ## Phase 1 — Foundation
 
@@ -10,7 +10,7 @@
 
 ## Phase 2 — Product site
 
-- Build homepage using only verified current CodeContext capabilities.
+- Build homepage using only verified current Vericore capabilities.
 - Add capability pages/sections for repository, dependency, change, PR, architecture, grounded evidence, Q&A, and engineering planning.
 - Add architecture and workflow explanations.
 - Add installation and quick-start examples.
@@ -18,17 +18,17 @@
 
 ## Phase 3 — Interactive proof
 
-- Generate or curate committed sample analysis artifacts from CodeContext.
+- Generate or curate committed sample analysis artifacts from Vericore.
 - Build a static interactive artifact explorer.
 - Visualize repository structure, dependency graph, change impact, evidence references, and planner output.
 - Provide accessible text equivalents for graph visualizations.
 
 ## Phase 4 — Documentation and GitHub integration
 
-- Link to authoritative CodeContext documentation.
+- Link to authoritative Vericore documentation.
 - Add release information sourced from GitHub where practical.
 - Add repository, issues, contribution, and release links.
-- Add website link to CodeContext README after the website is production-ready.
+- Add website link to Vericore README after the website is production-ready.
 
 ## Phase 5 — Verification and polish
 
