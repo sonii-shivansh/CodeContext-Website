@@ -2,9 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const releases = [
-  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Previous published release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', true],
-  ['v0.5.0', 'Engineering Intelligence Foundation', 'Previous published milestone covering repository, change, PR, architecture, evidence, Q&A, and planning capabilities.', false],
-  ['v0.2.0', 'Earlier release', 'Earlier published release in the product line.', false]
+  ['v0.7.0', 'Vericore identity + engineering safety', 'Current stable release. Canonical Vericore product identity with Engineering Reality, grounded repository Q&A, deterministic engineering planning, Agent Change Contracts, prepare → change → verify, Architecture Intelligence, MCP, local REST, and cross-platform verification.', true],
+  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Previous published release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', false],
+  ['v0.5.0', 'Engineering Intelligence Foundation', 'Previous published milestone covering repository, change, PR, architecture, evidence, Q&A, and planning capabilities.', false]
 ];
 ---
 
@@ -15,9 +15,9 @@ const releases = [
     <p>GitHub remains the authoritative source for release assets, checksums, source archives, and detailed release notes.</p>
   </section>
   <section class="container current">
-    <div><span class="kicker">CURRENT STABLE</span><h2>v0.6.0</h2><p>Engineering intelligence with a launch-hardened local-first runtime.</p></div>
-    <a class="button" href="https://github.com/sonii-shivansh/Vericore/releases/tag/v0.6.0">Download on GitHub ↗</a>
-    <div class="platforms"><span>Linux x64</span><span>Windows x64</span><span>macOS x64</span><span>macOS ARM64</span></div>
+    <div><span class="kicker">CURRENT STABLE</span><h2>v0.7.0</h2><p>Vericore's current stable release with deterministic engineering context, change safety, and AI-agent integration boundaries.</p></div>
+    <a class="button" href="https://github.com/sonii-shivansh/Vericore/releases/tag/v0.7.0">Download on GitHub ↗</a>
+    <div class="platforms"><span>Linux x64</span><span>Windows x64</span><span>macOS x64</span><span>macOS ARM64</span><span>SHA256SUMS</span></div>
   </section>
   <section class="container releases">
     {releases.map(([version, title, description, current]) => (

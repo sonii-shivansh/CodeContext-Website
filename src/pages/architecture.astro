@@ -2,11 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Architecture — Vericore" description="Understand the Vericore deterministic analysis, evidence, and delivery architecture.">
+<BaseLayout title="Architecture — Vericore" description="Understand the Vericore 0.7.0 deterministic analysis, Engineering Reality, evidence, planning, and verification architecture.">
   <section class="hero container">
-    <span class="kicker">ARCHITECTURE</span>
+    <span class="kicker">VERICORE 0.7.0 / ARCHITECTURE</span>
     <h1>Evidence flows<br /><span>through the system.</span></h1>
-    <p>Vericore separates deterministic repository facts from higher-level reasoning and delivery surfaces so engineering outputs remain traceable to evidence.</p>
+    <p>Vericore separates deterministic repository facts from higher-level reasoning and delivery surfaces so engineering outputs remain traceable to evidence and repository state.</p>
   </section>
 
   <section class="container pipeline" aria-label="Vericore architecture flow">
@@ -14,21 +14,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="arrow" aria-hidden="true">↓</div>
     <div class="node"><small>ANALYSIS</small><strong>Scanner + parsers + Git intelligence</strong><span>Java/Kotlin structure · dependencies · churn · authorship · evolution</span></div>
     <div class="arrow" aria-hidden="true">↓</div>
-    <div class="node"><small>INTELLIGENCE</small><strong>Deterministic analysis</strong><span>Graph · hotspots · cycles · impact · PR · architecture · learning paths</span></div>
+    <div class="node"><small>STATE</small><strong>Analysis Snapshot + Engineering Context</strong><span>Versioned repository signals and deterministic context snapshots</span></div>
     <div class="arrow" aria-hidden="true">↓</div>
-    <div class="node evidence"><small>GROUNDING</small><strong>Evidence + versioned artifacts</strong><span>Repository-derived findings that downstream workflows can inspect and cite</span></div>
+    <div class="node reality"><small>REALITY</small><strong>Engineering Reality</strong><span>Deterministic identity binding analysis to repository state; stale analysis is rejected</span></div>
+    <div class="arrow" aria-hidden="true">↓</div>
+    <div class="node evidence"><small>GROUNDING</small><strong>Evidence + deterministic intelligence</strong><span>Impact · PR · architecture · drift · Q&amp;A retrieval · planning inputs</span></div>
     <div class="arrow" aria-hidden="true">↓</div>
     <div class="outputs">
       <div class="node"><small>OUTPUT</small><strong>Repository Q&amp;A</strong><span>Grounded retrieval and optional AI assistance</span></div>
       <div class="node"><small>OUTPUT</small><strong>Engineering Planner</strong><span>Evidence-backed implementation and verification steps</span></div>
-      <div class="node"><small>DELIVERY</small><strong>CLI · REST · CI · HTML</strong><span>Local workflows, API endpoints, CI verification, self-contained reports</span></div>
+      <div class="node"><small>SAFETY</small><strong>Agent Change Contract</strong><span>Repository-bound SHA-256 contract persisted by prepare</span></div>
     </div>
+    <div class="arrow" aria-hidden="true">↓</div>
+    <div class="node verify"><small>VERIFY</small><strong>Prepare → Change → Verify</strong><span>Verify the original persisted contract after implementation</span></div>
+    <div class="arrow" aria-hidden="true">↓</div>
+    <div class="node"><small>DELIVERY</small><strong>CLI · REST · MCP · CI · HTML</strong><span>Local workflows, AI-agent integration, CI verification, self-contained reports</span></div>
   </section>
 
   <section class="container split">
     <article><span class="kicker">01 / DETERMINISTIC</span><h2>Repository facts</h2><p>The repository is analyzed into structured signals before higher-level workflows consume them. AI is optional and does not replace repository-derived truth.</p></article>
-    <article><span class="kicker">02 / GROUNDED</span><h2>Traceable context</h2><p>Evidence artifacts preserve findings from the analyzed repository so Q&amp;A and planning can distinguish evidence from interpretation.</p></article>
-    <article><span class="kicker">03 / LOCAL-FIRST</span><h2>Controlled delivery</h2><p>The CLI and generated reports are local-first. The REST server is intended for trusted local/internal use and validates repository paths.</p></article>
+    <article><span class="kicker">02 / STATE BOUNDARY</span><h2>Engineering Reality</h2><p>Analysis is bound to repository state with a deterministic identity, preventing stale analysis from being silently combined with newer source code.</p></article>
+    <article><span class="kicker">03 / SAFETY</span><h2>Persisted change boundary</h2><p>The Agent Change Contract binds planned paths, evidence, verification commands, and repository identity. Verify checks the persisted contract rather than regenerating it.</p></article>
   </section>
 </BaseLayout>
 
@@ -41,7 +47,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .pipeline { display: flex; flex-direction: column; align-items: center; }
   .node { width: min(760px, 100%); padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); display: grid; gap: 6px; }
   .node.primary { border-color: #31536a; background: linear-gradient(120deg, #0e1922, var(--panel)); }
-  .node.evidence { border-color: #365f52; }
+  .node.reality { border-color: #4b5563; }
+  .node.evidence,.node.verify { border-color: #365f52; }
   .node small { color: var(--muted); font: .68rem ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .1em; }
   .node strong { font-size: 1.1rem; }
   .node span { color: var(--muted); font-size: .86rem; }

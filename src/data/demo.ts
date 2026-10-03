@@ -1,4 +1,4 @@
-export type DemoView = 'repository' | 'impact' | 'evidence' | 'plan';
+export type DemoView = 'repository' | 'impact' | 'evidence' | 'plan' | 'safety';
 
 export const demoData = {
   repository: {
@@ -42,5 +42,11 @@ export const demoData = {
     ['02', 'Update implementation', 'Keep FraudService boundary explicit'],
     ['03', 'Update verification', 'Cover direct callers and impacted tests'],
     ['04', 'Run integration verification', 'Confirm external gateway behaviour']
-  ]
+  ],
+  safety: {
+    prepared: 'add payment validation',
+    contract: 'agent-change-contract.json',
+    fingerprint: 'SHA-256 / repository-bound',
+    verify: ['prepared HEAD', 'planned paths', 'evidence IDs', 'verification commands', 'repository state']
+  }
 } as const;

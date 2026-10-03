@@ -2,21 +2,25 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const docs = [
-  ['Architecture', 'Current system architecture and the relationships between Vericore analysis layers.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/ARCHITECTURE.md'],
+  ['Getting Started', 'Installation, first analysis, setup, doctor, and the basic Vericore workflow.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/GETTING_STARTED.md'],
+  ['Architecture', 'Current system architecture, deterministic layers, package boundaries, and delivery surfaces.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/ARCHITECTURE.md'],
+  ['Engineering Reality', 'How deterministic repository state is bound to analysis and why stale intelligence is rejected.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/ENGINEERING_REALITY.md'],
+  ['Change Safety', 'The prepare → change → verify workflow and repository-bound Agent Change Contract.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/CHANGE_SAFETY.md'],
   ['API', 'Current local REST API surface, endpoints, boundaries, and usage reference.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/API.md'],
-  ['Development', 'Project structure, development workflow, testing, and contributor guidance.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/DEVELOPMENT.md'],
-  ['Data Privacy', 'Current local-first data handling, optional AI behavior, and outbound-data transparency.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/DATA_PRIVACY.md'],
+  ['MCP / AI Agents', 'Current MCP tool contract and safety boundary for local AI-agent integration.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/MCP.md'],
   ['PR Intelligence', 'Current pull-request intelligence model, evidence, and change analysis.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/PR_INTELLIGENCE.md'],
-  ['Security', 'Security policy, current REST boundary, and vulnerability reporting guidance.', 'https://github.com/sonii-shivansh/Vericore/blob/main/SECURITY.md']
+  ['Data Privacy', 'Current local-first data handling, optional AI behavior, and outbound-data transparency.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/DATA_PRIVACY.md'],
+  ['Development', 'Project structure, development workflow, testing, and contributor guidance.', 'https://github.com/sonii-shivansh/Vericore/blob/main/docs/DEVELOPMENT.md'],
+  ['Security', 'Security policy, REST boundary, and vulnerability reporting guidance.', 'https://github.com/sonii-shivansh/Vericore/blob/main/SECURITY.md']
 ];
 ---
 
-<BaseLayout title="Documentation — Vericore" description="Authoritative Vericore documentation and engineering references.">
-  <section class="hero container"><span class="kicker">DOCUMENTATION</span><h1>Read the source of truth.<br /><span>Then inspect the code.</span></h1><p>The website provides navigation and product context; the Vericore repository remains authoritative for implementation details and current behavior.</p></section>
+<BaseLayout title="Documentation — Vericore" description="Authoritative Vericore 0.7.0 documentation and engineering references.">
+  <section class="hero container"><span class="kicker">VERICORE 0.7.0 / DOCUMENTATION</span><h1>Read the source of truth.<br /><span>Then inspect the code.</span></h1><p>The website provides navigation and product context; the Vericore repository remains authoritative for implementation details and current behavior.</p></section>
   <section class="container grid">
     {docs.map(([title, description, href]) => <a class="card" href={href}><span class="kicker">REFERENCE</span><h2>{title} ↗</h2><p>{description}</p></a>)}
   </section>
-  <section class="container note"><span class="kicker">CURRENT RELEASE</span><h2>Vericore v0.6.0</h2><p>For installation, platform artifacts, checksums, and release notes, use the GitHub release as the authoritative distribution source.</p><a href="https://github.com/sonii-shivansh/Vericore/releases/tag/v0.6.0">View v0.6.0 ↗</a></section>
+  <section class="container note"><span class="kicker">CURRENT RELEASE</span><h2>Vericore v0.7.0</h2><p>For installation, platform artifacts, checksums, and release notes, use the GitHub release as the authoritative distribution source.</p><a href="https://github.com/sonii-shivansh/Vericore/releases/tag/v0.7.0">View v0.7.0 ↗</a></section>
 </BaseLayout>
 
 <style>
