@@ -1,4 +1,4 @@
-export type DemoView = 'repository' | 'impact' | 'evidence' | 'plan' | 'safety';
+export type DemoView = 'repository' | 'impact' | 'evidence' | 'plan' | 'safety' | 'reality';
 
 export const demoData = {
   repository: {
@@ -48,5 +48,12 @@ export const demoData = {
     contract: 'agent-change-contract.json',
     fingerprint: 'SHA-256 / repository-bound',
     verify: ['prepared HEAD', 'planned paths', 'evidence IDs', 'verification commands', 'repository state']
+  },
+  reality: {
+    analysis: 'analysis-snapshot.json',
+    context: 'engineering-context.json',
+    identity: 'realityDigest / deterministic',
+    binding: ['repository HEAD', 'analysis digest', 'context digest', 'repository-relative fingerprints'],
+    stale: 'If repository state changes after analysis, Reality can reject the stale analysis instead of silently mixing states.'
   }
 } as const;

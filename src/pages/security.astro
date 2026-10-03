@@ -2,33 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Security & Privacy — Vericore" description="Current Vericore security, privacy, and transparency information.">
-  <section class="hero container">
-    <span class="kicker">TRUST / TRANSPARENCY</span>
-    <h1>Know what Vericore<br /><span>does with your data.</span></h1>
-    <p>This page describes the current implementation. It is intentionally limited to behavior that exists today.</p>
-  </section>
-
+<BaseLayout title="Security & Privacy — Vericore" description="Current Vericore 0.7.0 security, privacy, trust boundaries, and transparency information.">
+  <section class="hero container"><span class="kicker">TRUST / TRANSPARENCY</span><h1>Know what Vericore<br /><span>does with your data.</span></h1><p>This page describes the current 0.7.0 implementation. It is intentionally limited to behavior that exists today.</p></section>
   <section class="container grid">
-    <article><span class="kicker">LOCAL-FIRST</span><h2>Repository analysis</h2><p>Vericore analyzes repositories locally. With AI disabled, repository analysis and deterministic intelligence do not send repository content to a Vericore telemetry or storage service.</p></article>
-    <article><span class="kicker">AI / OPT-IN</span><h2>Provider boundaries</h2><p>AI-assisted workflows are optional. When configured, bounded repository-derived context is sent directly to the selected provider for the requested AI operation. AI is not treated as the authoritative source of repository truth.</p></article>
-    <article><span class="kicker">REPORTS</span><h2>Self-contained output</h2><p>Generated HTML reports contain their visualization code and do not require a browser CDN request at report-open time. Reports can therefore be inspected offline.</p></article>
-    <article><span class="kicker">API BOUNDARY</span><h2>Trusted local use</h2><p>The local REST server validates repository paths and applies rate limiting, but it does not currently provide authentication, tenant isolation, or deployment-level authorization. Do not expose it publicly without an appropriate security boundary.</p></article>
-    <article><span class="kicker">CONTEXT LIMITS</span><h2>Bounded AI input</h2><p>AI operations use bounded repository-derived context rather than sending an entire repository indiscriminately. See the detailed privacy document for current implementation-level limits.</p></article>
-    <article><span class="kicker">SOURCE</span><h2>Inspect the implementation</h2><p>Vericore is open source. The exact implementation, configuration, and current behavior can be inspected directly in the repository.</p></article>
+    <article><span class="kicker">LOCAL-FIRST</span><h2>Repository analysis</h2><p>Vericore analyzes repositories locally. With AI disabled, deterministic repository analysis does not send repository content to a Vericore telemetry or storage service.</p></article>
+    <article><span class="kicker">AI / OPT-IN</span><h2>Provider boundaries</h2><p>AI-assisted workflows are optional. When configured, bounded repository-derived context is sent directly to the selected provider for the requested operation. AI is not authoritative repository truth.</p></article>
+    <article><span class="kicker">REPORTS</span><h2>Self-contained output</h2><p>Generated HTML reports contain their visualization code and do not require a browser CDN request at report-open time, allowing offline inspection.</p></article>
+    <article><span class="kicker">API BOUNDARY</span><h2>Trusted local use</h2><p>The local REST server validates paths and applies rate limiting, but it does not provide authentication, authorization, tenant isolation, or deployment-level TLS. Do not expose it publicly without an appropriate security boundary.</p></article>
+    <article><span class="kicker">PATH SAFETY</span><h2>Bounded repositories</h2><p>Local server and MCP boundaries reject remote repository URLs and validate repository paths. Keep allowed roots as narrow as practical when configuring trusted integrations.</p></article>
+    <article><span class="kicker">CONTEXT LIMITS</span><h2>Bounded AI input</h2><p>AI operations use bounded repository-derived context rather than indiscriminately sending an entire repository. Exact limits and provider behavior are documented in the source repository.</p></article>
+    <article><span class="kicker">CHANGE SAFETY</span><h2>Verification is not authorization</h2><p>The Agent Change Contract is a deterministic verification boundary. It detects mismatches, tampering, stale state, and repository identity changes; it is not an authorization system or autonomous coding mechanism.</p></article>
+    <article><span class="kicker">LIMITATIONS</span><h2>What is not shipped</h2><p>There is no production telemetry service, multi-tenant governance layer, autonomous source modification, or deployment-grade authentication in the current release.</p></article>
   </section>
-
-  <section class="container links">
-    <a href="https://github.com/sonii-shivansh/Vericore/blob/main/docs/DATA_PRIVACY.md">Read the detailed transparency document ↗</a>
-    <a href="https://github.com/sonii-shivansh/Vericore/blob/main/SECURITY.md">Read the security policy ↗</a>
-    <a href="https://github.com/sonii-shivansh/Vericore/issues">Report an issue ↗</a>
-  </section>
+  <section class="container links"><a href="https://github.com/sonii-shivansh/Vericore/blob/main/docs/DATA_PRIVACY.md">Read the detailed transparency document ↗</a><a href="https://github.com/sonii-shivansh/Vericore/blob/main/SECURITY.md">Read the security policy ↗</a><a href="https://github.com/sonii-shivansh/Vericore/issues">Report an issue ↗</a></section>
 </BaseLayout>
 
 <style>
-  .hero { padding: 110px 0 65px; max-width: 960px; }.kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
-  h1 { margin: 18px 0; font-size: clamp(3rem, 8vw, 6rem); line-height: .96; letter-spacing: -.065em; } h1 span { color: var(--muted); }.hero p { max-width: 700px; color: var(--muted); font-size: 1.1rem; }
-  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }.grid article { min-height: 210px; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }.grid h2 { margin: 15px 0 8px; font-size: 1.3rem; }.grid p { color: var(--muted); }
-  .links { margin-top: 70px; display: grid; gap: 8px; }.links a { padding: 18px; border: 1px solid var(--line); border-radius: 9px; text-decoration: none; background: var(--panel); }.links a:hover { border-color: #304155; }
-  @media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+.hero{padding:110px 0 65px;max-width:960px}.kicker{color:var(--accent);font:600 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em}.hero h1{margin:18px 0;font-size:clamp(3rem,8vw,6rem);line-height:.96;letter-spacing:-.065em}.hero h1 span{color:var(--muted)}.hero p{max-width:700px;color:var(--muted);font-size:1.1rem}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.grid article{min-height:190px;padding:28px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}.grid h2{margin:15px 0 8px;font-size:1.3rem}.grid p{color:var(--muted)}.links{margin-top:70px;display:grid;gap:8px}.links a{padding:18px;border:1px solid var(--line);border-radius:9px;text-decoration:none;background:var(--panel)}.links a:hover{border-color:#304155}@media(max-width:700px){.grid{grid-template-columns:1fr}}
 </style>
