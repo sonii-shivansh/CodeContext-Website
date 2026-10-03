@@ -2,26 +2,26 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Security & Privacy — CodeContext" description="Current CodeContext security, privacy, and transparency information.">
+<BaseLayout title="Security & Privacy — Vericore" description="Current Vericore security, privacy, and transparency information.">
   <section class="hero container">
     <span class="kicker">TRUST / TRANSPARENCY</span>
-    <h1>Know what CodeContext<br /><span>does with your data.</span></h1>
+    <h1>Know what Vericore<br /><span>does with your data.</span></h1>
     <p>This page describes the current implementation. It is intentionally limited to behavior that exists today.</p>
   </section>
 
   <section class="container grid">
-    <article><span class="kicker">LOCAL-FIRST</span><h2>Repository analysis</h2><p>CodeContext analyzes repositories locally. With AI disabled, repository analysis and deterministic intelligence do not send repository content to a CodeContext telemetry or storage service.</p></article>
+    <article><span class="kicker">LOCAL-FIRST</span><h2>Repository analysis</h2><p>Vericore analyzes repositories locally. With AI disabled, repository analysis and deterministic intelligence do not send repository content to a Vericore telemetry or storage service.</p></article>
     <article><span class="kicker">AI / OPT-IN</span><h2>Provider boundaries</h2><p>AI-assisted workflows are optional. When configured, bounded repository-derived context is sent directly to the selected provider for the requested AI operation. AI is not treated as the authoritative source of repository truth.</p></article>
     <article><span class="kicker">REPORTS</span><h2>Self-contained output</h2><p>Generated HTML reports contain their visualization code and do not require a browser CDN request at report-open time. Reports can therefore be inspected offline.</p></article>
     <article><span class="kicker">API BOUNDARY</span><h2>Trusted local use</h2><p>The local REST server validates repository paths and applies rate limiting, but it does not currently provide authentication, tenant isolation, or deployment-level authorization. Do not expose it publicly without an appropriate security boundary.</p></article>
     <article><span class="kicker">CONTEXT LIMITS</span><h2>Bounded AI input</h2><p>AI operations use bounded repository-derived context rather than sending an entire repository indiscriminately. See the detailed privacy document for current implementation-level limits.</p></article>
-    <article><span class="kicker">SOURCE</span><h2>Inspect the implementation</h2><p>CodeContext is open source. The exact implementation, configuration, and current behavior can be inspected directly in the repository.</p></article>
+    <article><span class="kicker">SOURCE</span><h2>Inspect the implementation</h2><p>Vericore is open source. The exact implementation, configuration, and current behavior can be inspected directly in the repository.</p></article>
   </section>
 
   <section class="container links">
-    <a href="https://github.com/sonii-shivansh/CodeContext/blob/main/docs/DATA_PRIVACY.md">Read the detailed transparency document ↗</a>
-    <a href="https://github.com/sonii-shivansh/CodeContext/blob/main/SECURITY.md">Read the security policy ↗</a>
-    <a href="https://github.com/sonii-shivansh/CodeContext/issues">Report an issue ↗</a>
+    <a href="https://github.com/sonii-shivansh/Vericore/blob/main/docs/DATA_PRIVACY.md">Read the detailed transparency document ↗</a>
+    <a href="https://github.com/sonii-shivansh/Vericore/blob/main/SECURITY.md">Read the security policy ↗</a>
+    <a href="https://github.com/sonii-shivansh/Vericore/issues">Report an issue ↗</a>
   </section>
 </BaseLayout>
 
