@@ -2,24 +2,33 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="How to Use Vericore" description="A practical guide to installing, analyzing, exploring, and integrating Vericore.">
+<BaseLayout title="How to Use Vericore" description="A practical guide to installing, analyzing, exploring, planning, and verifying with Vericore 0.7.0.">
   <main class="container page">
     <header class="hero">
-      <p class="eyebrow">GET STARTED</p>
-      <h1>How to use Vericore</h1>
-      <p class="lead">Go from a fresh installation to evidence-backed repository intelligence in a few practical steps.</p>
+      <p class="eyebrow">VERICORE 0.7.0</p>
+      <h1>Understand. Change. Verify.</h1>
+      <p class="lead">Go from a fresh installation to repository-grounded engineering decisions and a repository-bound verification boundary.</p>
     </header>
 
     <section class="steps">
-      <article class="step"><span>01</span><div><h2>Install Vericore</h2><p>Download the latest release for your platform from GitHub Releases, then verify the CLI is available.</p><pre><code>vericore --version</code></pre></div></article>
-      <article class="step"><span>02</span><div><h2>Analyze a repository</h2><p>Run Vericore from the repository you want to understand. Analysis builds deterministic repository intelligence locally.</p><pre><code>cd your-project
-vericore analyze .</code></pre></div></article>
-      <article class="step"><span>03</span><div><h2>Explore the intelligence</h2><p>Use the generated context to understand structure, dependencies, architecture, Git evolution, and relationships between code components.</p></div></article>
-      <article class="step"><span>04</span><div><h2>Ask grounded questions</h2><p>Use repository Q&amp;A when you need an explanation. Answers are grounded in repository evidence instead of relying only on model memory.</p></div></article>
-      <article class="step"><span>05</span><div><h2>Understand changes</h2><p>Use change-impact analysis, PR Intelligence, and Architecture Intelligence to understand what a change can affect and why.</p></div></article>
-      <article class="step"><span>06</span><div><h2>Generate an engineering plan</h2><p>Turn repository evidence into an actionable plan containing affected areas, risks, evidence, and verification steps.</p></div></article>
-      <article class="step"><span>07</span><div><h2>Use the REST API</h2><p>For local integrations, start the REST server and use the health and intelligence endpoints. The server is intended for trusted local use and is not a public multi-tenant service.</p><pre><code>vericore serve</code></pre></div></article>
-      <article class="step"><span>08</span><div><h2>Add it to CI</h2><p>Run Vericore in your development or CI workflow to make repository understanding, evidence, and verification repeatable.</p></div></article>
+      <article class="step"><span>01</span><div><h2>Install Vericore</h2><p>Download the current release for your platform. Released archives bundle the Java runtime for normal end-user use.</p><pre><code>vericore --version
+vericore setup
+vericore doctor</code></pre></div></article>
+      <article class="step"><span>02</span><div><h2>Analyze a repository</h2><p>Run deterministic analysis locally. Vericore builds source, dependency, Git, architecture, and engineering signals.</p><pre><code>cd your-project
+vericore analyze .
+vericore reality . --json</code></pre></div></article>
+      <article class="step"><span>03</span><div><h2>Explore the intelligence</h2><p>Inspect repository structure, PageRank hotspots, cycles, Git evolution, change impact, PR Intelligence, and Architecture Intelligence.</p></div></article>
+      <article class="step"><span>04</span><div><h2>Ask grounded questions</h2><p>Use repository Q&amp;A to retrieve bounded evidence before answering engineering questions. AI assistance is optional.</p><pre><code>vericore repo-qa "why is PaymentService risky?" --path /path/to/repository</code></pre></div></article>
+      <article class="step"><span>05</span><div><h2>Understand a change</h2><p>Use impact, PR Intelligence, architecture drift, and architecture contracts to understand affected areas and governance signals.</p><pre><code>vericore impact /path/to/repository src/main/Service.kt --json
+vericore pr-intelligence /path/to/repository --json
+vericore architecture-drift /path/to/repository --baseline /path/to/architecture-baseline.json --json</code></pre></div></article>
+      <article class="step"><span>06</span><div><h2>Prepare the change</h2><p>Generate an evidence-backed engineering plan and a repository-bound Agent Change Contract before implementation begins.</p><pre><code>vericore prepare "add payment validation" --path /path/to/repository</code></pre></div></article>
+      <article class="step"><span>07</span><div><h2>Implement, then verify</h2><p>Make the change outside Vericore, then verify against the original persisted contract. Do not replace it with a newly generated contract.</p><pre><code>vericore verify \
+  --path /path/to/repository \
+  --plan output/engineering-plan.json \
+  --contract output/agent-change-contract.json</code></pre></div></article>
+      <article class="step"><span>08</span><div><h2>Integrate with REST or MCP</h2><p>Use the local Ktor server or MCP stdio interface for trusted local/internal integrations and AI-agent workflows.</p><pre><code>vericore server --host 127.0.0.1 --port 8080
+vericore mcp</code></pre></div></article>
     </section>
 
     <section class="trust">
@@ -27,11 +36,11 @@ vericore analyze .</code></pre></div></article>
       <div class="grid">
         <div><strong>Deterministic first</strong><p>Repository structure and core intelligence are produced locally and reproducibly.</p></div>
         <div><strong>AI is optional</strong><p>AI-assisted workflows can add explanation and planning without replacing repository evidence.</p></div>
-        <div><strong>Evidence matters</strong><p>Grounded workflows connect conclusions back to repository-relative evidence.</p></div>
+        <div><strong>Persisted safety boundary</strong><p>The Agent Change Contract captures the prepared change boundary and is the basis for post-change verification.</p></div>
       </div>
     </section>
 
-    <section class="next"><h2>Ready to try it?</h2><p>Start with the latest stable release, then return here as your workflow grows.</p><div class="actions"><a href="https://github.com/sonii-shivansh/Vericore/releases/latest">Download Vericore</a><a href="/docs">Read the documentation</a></div></section>
+    <section class="next"><h2>Ready to try it?</h2><p>Start with v0.7.0, inspect the generated artifacts, and follow the prepare → change → verify workflow.</p><div class="actions"><a href="https://github.com/sonii-shivansh/Vericore/releases/latest">Download Vericore</a><a href="/docs">Read the documentation</a></div></section>
   </main>
 </BaseLayout>
 
