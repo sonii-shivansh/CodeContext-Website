@@ -18,8 +18,12 @@ jobs:
           - README.md
           - astro.config.mjs
           - package.json
+          - tsconfig.json
+          - .github/workflows/ci.yml
+          - .github/workflows/deploy.yml
           - docs/IMPLEMENTATION_PLAN.md
           - docs/WEBSITE_SPEC.md
+          - public/favicon.svg
           - public/robots.txt
           - public/sitemap-index.xml
           - public/sitemap.xml
