@@ -11,135 +11,50 @@ const tabs = [
 ---
 
 <BaseLayout
-  title="CodeContext Demo — Interactive engineering proof"
-  description="Explore a static, reproducible CodeContext analysis showing repository structure, change impact, evidence, and engineering planning."
+  title="Vericore Demo — Interactive engineering proof"
+  description="Explore a static, reproducible Vericore analysis showing repository structure, change impact, evidence, and engineering planning."
 >
   <section class="intro container">
     <span class="kicker">03 / INTERACTIVE PROOF</span>
     <h1>Follow one engineering decision from code to evidence.</h1>
-    <p>This is a committed demonstration artifact. It does not pretend to execute CodeContext in the browser; every value is static, inspectable, and shaped around capabilities CodeContext currently implements.</p>
+    <p>This is a committed demonstration artifact. It does not pretend to execute Vericore in the browser; every value is static, inspectable, and shaped around capabilities Vericore currently implements.</p>
   </section>
 
   <section class="explorer container" aria-labelledby="explorer-title">
-    <div class="explorer-head">
-      <div><span class="kicker">REPOSITORY</span><h2 id="explorer-title">{demoData.repository.title}</h2></div>
-      <span class="badge">STATIC ARTIFACT</span>
-    </div>
-
+    <div class="explorer-head"><div><span class="kicker">REPOSITORY</span><h2 id="explorer-title">{demoData.repository.title}</h2></div><span class="badge">STATIC ARTIFACT</span></div>
     <div class="tabs" role="tablist" aria-label="Demo views">
-      {tabs.map(([id, label], index) => (
-        <button class:list={{ active: index === 0 }} class="tab" type="button" role="tab" aria-selected={index === 0} aria-controls={`panel-${id}`} data-tab={id}>{label}</button>
-      ))}
+      {tabs.map(([id, label], index) => <button class:list={{ active: index === 0 }} class="tab" type="button" role="tab" aria-selected={index === 0} aria-controls={`panel-${id}`} data-tab={id}>{label}</button>)}
     </div>
 
     <div id="panel-repository" class="panel" role="tabpanel" data-panel="repository">
-      <div class="stats">
-        <div><strong>{demoData.repository.files}</strong><span>files in sample snapshot</span></div>
-        <div><strong>{demoData.repository.relationships}</strong><span>relationships in sample snapshot</span></div>
-        <div><strong>{demoData.repository.hotspots}</strong><span>knowledge hotspots in sample snapshot</span></div>
-      </div>
+      <div class="stats"><div><strong>{demoData.repository.files}</strong><span>files in sample snapshot</span></div><div><strong>{demoData.repository.relationships}</strong><span>relationships in sample snapshot</span></div><div><strong>{demoData.repository.hotspots}</strong><span>knowledge hotspots in sample snapshot</span></div></div>
       <div class="graph" aria-label="Dependency graph for the example repository">
-        <svg class="edges" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          {demoData.repository.edges.map(([from, to]) => {
-            const a = demoData.repository.nodes.find((node) => node.name === from)!;
-            const b = demoData.repository.nodes.find((node) => node.name === to)!;
-            return <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
-          })}
-        </svg>
-        {demoData.repository.nodes.map((node) => (
-          <div class={`node ${node.kind}`} style={`left:${node.x}%;top:${node.y}%`}>
-            <span>{node.kind}</span><strong>{node.name}</strong>
-          </div>
-        ))}
+        <svg class="edges" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{demoData.repository.edges.map(([from, to]) => { const a = demoData.repository.nodes.find((node) => node.name === from)!; const b = demoData.repository.nodes.find((node) => node.name === to)!; return <line x1={a.x} y1={a.y} x2={b.x} y2={b.y} />; })}</svg>
+        {demoData.repository.nodes.map((node) => <div class={`node ${node.kind}`} style={`left:${node.x}%;top:${node.y}%`}><span>{node.kind}</span><strong>{node.name}</strong></div>)}
       </div>
-      <p class="caption">The numbers above are demonstration data, not a claim about this repository. Real CodeContext analysis is performed by the CLI/local application.</p>
+      <p class="caption">The numbers above are demonstration data, not a claim about this repository. Real Vericore analysis is performed by the CLI/local application.</p>
     </div>
 
-    <div id="panel-impact" class="panel hidden" role="tabpanel" data-panel="impact" aria-hidden="true">
-      <div class="impact-layout">
-        <div class="change-card"><span class="kicker">CHANGED</span><strong>{demoData.impact.changed}</strong><p>Potentially changes behaviour across the connected payment flow.</p></div>
-        <div class="affected-list"><span class="kicker">AFFECTED COMPONENTS</span>{demoData.impact.affected.map((item) => <div class="affected"><strong>{item.name}</strong><span>{item.reason}</span></div>)}</div>
-      </div>
-      <div class="notice"><strong>Risk signal</strong><span>{demoData.impact.risk}</span></div>
-      <div class="notice muted"><strong>Known uncertainty</strong><span>{demoData.impact.uncertainty}</span></div>
-    </div>
+    <div id="panel-impact" class="panel hidden" role="tabpanel" data-panel="impact" aria-hidden="true"><div class="impact-layout"><div class="change-card"><span class="kicker">CHANGED</span><strong>{demoData.impact.changed}</strong><p>Potentially changes behaviour across the connected payment flow.</p></div><div class="affected-list"><span class="kicker">AFFECTED COMPONENTS</span>{demoData.impact.affected.map((item) => <div class="affected"><strong>{item.name}</strong><span>{item.reason}</span></div>)}</div></div><div class="notice"><strong>Risk signal</strong><span>{demoData.impact.risk}</span></div><div class="notice muted"><strong>Known uncertainty</strong><span>{demoData.impact.uncertainty}</span></div></div>
 
-    <div id="panel-evidence" class="panel hidden" role="tabpanel" data-panel="evidence" aria-hidden="true">
-      <div class="evidence-list">
-        {demoData.evidence.map((item) => (
-          <article><div class="evidence-id">{item.id}</div><div><strong>{item.finding}</strong><span>{item.source}</span></div><em>{item.confidence}</em></article>
-        ))}
-      </div>
-      <p class="caption">The evidence view illustrates the traceability model; it is not a live query against a visitor's repository.</p>
-    </div>
+    <div id="panel-evidence" class="panel hidden" role="tabpanel" data-panel="evidence"><div class="evidence-list">{demoData.evidence.map((item) => <article><div class="evidence-id">{item.id}</div><div><strong>{item.finding}</strong><span>{item.source}</span></div><em>{item.confidence}</em></article>)}</div><p class="caption">The evidence view illustrates the traceability model; it is not a live query against a visitor's repository.</p></div>
 
-    <div id="panel-plan" class="panel hidden" role="tabpanel" data-panel="plan" aria-hidden="true">
-      <div class="plan-list">
-        {demoData.plan.map(([number, title, detail]) => <article><span>{number}</span><div><strong>{title}</strong><p>{detail}</p></div></article>)}
-      </div>
-      <div class="plan-footer">Grounded planning keeps repository evidence ahead of implementation decisions.</div>
-    </div>
+    <div id="panel-plan" class="panel hidden" role="tabpanel" data-panel="plan"><div class="plan-list">{demoData.plan.map(([number, title, detail]) => <article><span>{number}</span><div><strong>{title}</strong><p>{detail}</p></div></article>)}</div><div class="plan-footer">Grounded planning keeps repository evidence ahead of implementation decisions.</div></div>
   </section>
 
-  <section class="container note">
-    <span class="kicker">WHY STATIC?</span>
-    <h2>Reproducible proof beats a fake live demo.</h2>
-    <p>GitHub Pages hosts static assets. This explorer intentionally uses committed sample artifacts so visitors can inspect the interaction without sending repository data to a hidden backend.</p>
-    <a href="https://github.com/sonii-shivansh/CodeContext">Inspect the real implementation ↗</a>
-  </section>
+  <section class="container note"><span class="kicker">WHY STATIC?</span><h2>Reproducible proof beats a fake live demo.</h2><p>GitHub Pages hosts static assets. This explorer intentionally uses committed sample artifacts so visitors can inspect the interaction without sending repository data to a hidden backend.</p><a href="https://github.com/sonii-shivansh/Vericore">Inspect the real implementation ↗</a></section>
 </BaseLayout>
 
 <script>
   const tabs = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
   const panels = document.querySelectorAll<HTMLElement>('[data-panel]');
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      const id = tab.dataset.tab;
-      tabs.forEach((item) => { item.classList.toggle('active', item === tab); item.setAttribute('aria-selected', String(item === tab)); });
-      panels.forEach((panel) => { const active = panel.dataset.panel === id; panel.classList.toggle('hidden', !active); panel.setAttribute('aria-hidden', String(!active)); });
-    });
-  });
+  tabs.forEach((tab) => tab.addEventListener('click', () => {
+    const id = tab.dataset.tab;
+    tabs.forEach((item) => { item.classList.toggle('active', item === tab); item.setAttribute('aria-selected', String(item === tab)); });
+    panels.forEach((panel) => { const active = panel.dataset.panel === id; panel.classList.toggle('hidden', !active); panel.setAttribute('aria-hidden', String(!active)); });
+  }));
 </script>
 
 <style>
-  .intro { padding: 100px 0 42px; max-width: 920px; }
-  .kicker { color: var(--accent); font: 600 .72rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .12em; }
-  h1 { max-width: 880px; margin: 14px 0; font-size: clamp(2.8rem, 7vw, 5.8rem); line-height: .98; letter-spacing: -.06em; }
-  .intro p, .note p { max-width: 720px; color: var(--muted); font-size: 1.05rem; }
-  .explorer { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--panel); }
-  .explorer-head { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px; border-bottom: 1px solid var(--line); }
-  .explorer-head h2 { margin: 6px 0 0; font-size: 1.2rem; }
-  .badge { border: 1px solid var(--line); border-radius: 999px; padding: 6px 9px; color: var(--muted); font: .65rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .tabs { display: flex; overflow-x: auto; border-bottom: 1px solid var(--line); }
-  .tab { appearance: none; border: 0; border-right: 1px solid var(--line); background: transparent; color: var(--muted); padding: 14px 18px; cursor: pointer; white-space: nowrap; font: 600 .78rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .tab.active { color: var(--text); background: var(--panel-2); box-shadow: inset 0 -2px var(--accent); }
-  .panel { padding: 22px; min-height: 480px; }
-  .hidden { display: none; }
-  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
-  .stats div { padding: 16px; border: 1px solid var(--line); background: var(--panel-2); border-radius: 8px; }
-  .stats strong { display: block; font-size: 1.45rem; letter-spacing: -.04em; }
-  .stats span { color: var(--muted); font-size: .72rem; }
-  .graph { position: relative; min-height: 380px; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background-image: linear-gradient(rgb(255 255 255 / 3%) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 3%) 1px, transparent 1px); background-size: 36px 36px; }
-  .edges { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .edges line { stroke: #334155; stroke-width: .35; stroke-dasharray: 1.5 1; }
-  .node { position: absolute; transform: translate(-50%, -50%); min-width: 130px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; background: #0b1119; box-shadow: 0 10px 28px rgb(0 0 0 / 25%); }
-  .node span { display: block; color: var(--accent); font: .58rem ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: uppercase; }
-  .node strong { display: block; margin-top: 3px; font-size: .72rem; white-space: nowrap; }
-  .node.repository { border-color: #374151; } .node.test { border-style: dashed; }
-  .impact-layout { display: grid; grid-template-columns: 1fr 1.5fr; gap: 12px; }
-  .change-card, .affected-list, .notice { border: 1px solid var(--line); border-radius: 9px; padding: 22px; background: var(--panel-2); }
-  .change-card strong { display: block; margin-top: 18px; font-size: 1.4rem; }
-  .change-card p { color: var(--muted); font-size: .85rem; }
-  .affected-list > .kicker { display: block; margin-bottom: 10px; }
-  .affected { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; border-top: 1px solid var(--line); }
-  .affected span { color: var(--muted); font-size: .78rem; }
-  .notice { margin-top: 12px; display: flex; gap: 20px; align-items: baseline; } .notice strong { white-space: nowrap; } .notice span { color: var(--muted); font-size: .82rem; } .notice.muted { opacity: .85; }
-  .evidence-list, .plan-list { display: grid; gap: 8px; }
-  .evidence-list article { display: grid; grid-template-columns: 60px 1fr auto; align-items: center; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-2); }
-  .evidence-id { color: var(--accent); font: 600 .78rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .evidence-list strong, .evidence-list span { display: block; } .evidence-list span { color: var(--muted); font: .72rem ui-monospace, SFMono-Regular, Menlo, monospace; margin-top: 4px; } .evidence-list em { color: var(--success); font: .68rem ui-monospace, SFMono-Regular, Menlo, monospace; }
-  .caption { color: var(--muted); font-size: .78rem; }
-  .plan-list article { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 18px; border-bottom: 1px solid var(--line); } .plan-list article > span { color: var(--accent); font: .78rem ui-monospace, SFMono-Regular, Menlo, monospace; } .plan-list p { margin: 4px 0 0; color: var(--muted); font-size: .82rem; } .plan-footer { margin-top: 18px; padding: 16px; border-left: 2px solid var(--accent); color: var(--muted); font-size: .8rem; }
-  .note { padding: 110px 0 10px; } .note h2 { margin: 10px 0; font-size: clamp(2rem, 4vw, 3.3rem); letter-spacing: -.04em; } .note a { display: inline-block; margin-top: 12px; color: var(--accent); text-underline-offset: 4px; }
-  @media (max-width: 700px) { .intro { padding-top: 70px; } .panel { min-height: 0; } .stats, .impact-layout { grid-template-columns: 1fr; } .graph { min-height: 440px; } .node { min-width: 110px; } .evidence-list article { grid-template-columns: 48px 1fr; } .evidence-list em { grid-column: 2; } .notice { flex-direction: column; gap: 6px; } }
+  .intro{padding:100px 0 42px;max-width:920px}.kicker{color:var(--accent);font:600 .72rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.12em}.intro h1{max-width:880px;margin:14px 0;font-size:clamp(2.8rem,7vw,5.8rem);line-height:.98;letter-spacing:-.06em}.intro p,.note p{max-width:720px;color:var(--muted);font-size:1.05rem}.explorer{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel)}.explorer-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px;border-bottom:1px solid var(--line)}.explorer-head h2{margin:6px 0 0;font-size:1.2rem}.badge{border:1px solid var(--line);border-radius:999px;padding:6px 9px;color:var(--muted);font:.65rem ui-monospace,SFMono-Regular,Menlo,monospace}.tabs{display:flex;overflow-x:auto;border-bottom:1px solid var(--line)}.tab{appearance:none;border:0;border-right:1px solid var(--line);background:transparent;color:var(--muted);padding:14px 18px;cursor:pointer;white-space:nowrap;font:600 .78rem ui-monospace,SFMono-Regular,Menlo,monospace}.tab.active{color:var(--text);background:var(--panel-2);box-shadow:inset 0 -2px var(--accent)}.panel{padding:22px;min-height:430px}.hidden{display:none}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}.stats div{padding:16px;border:1px solid var(--line);background:var(--panel-2);border-radius:8px}.stats strong{display:block;font-size:1.45rem;letter-spacing:-.04em}.stats span{color:var(--muted);font-size:.72rem}.graph{position:relative;min-height:380px;border:1px solid var(--line);border-radius:10px;overflow:hidden;background-image:linear-gradient(rgb(255 255 255 / 3%) 1px,transparent 1px),linear-gradient(90deg,rgb(255 255 255 / 3%) 1px,transparent 1px);background-size:36px 36px}.edges{position:absolute;inset:0;width:100%;height:100%}.edges line{stroke:#334155;stroke-width:.35;stroke-dasharray:1.5 1}.node{position:absolute;transform:translate(-50%,-50%);min-width:130px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#0b1119;box-shadow:0 10px 28px rgb(0 0 0 / 25%)}.node span{display:block;color:var(--accent);font:.58rem ui-monospace,SFMono-Regular,Menlo,monospace;text-transform:uppercase}.node strong{display:block;margin-top:3px;font-size:.72rem;white-space:nowrap}.node.repository{border-color:#374151}.node.test{border-style:dashed}.impact-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:12px}.change-card,.affected-list,.notice{border:1px solid var(--line);border-radius:9px;padding:22px;background:var(--panel-2)}.change-card strong{display:block;margin-top:18px;font-size:1.4rem}.change-card p{color:var(--muted);font-size:.85rem}.affected-list>.kicker{display:block;margin-bottom:10px}.affected{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-top:1px solid var(--line)}.affected span{color:var(--muted);font-size:.78rem}.notice{margin-top:12px;display:flex;gap:20px;align-items:baseline}.notice strong{white-space:nowrap}.notice span{color:var(--muted);font-size:.82rem}.notice.muted{opacity:.85}.evidence-list,.plan-list{display:grid;gap:8px}.evidence-list article{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:16px;padding:18px;border:1px solid var(--line);border-radius:8px;background:var(--panel-2)}.evidence-id{color:var(--accent);font:600 .78rem ui-monospace,SFMono-Regular,Menlo,monospace}.evidence-list strong,.evidence-list span{display:block}.evidence-list span{color:var(--muted);font:.72rem ui-monospace,SFMono-Regular,Menlo,monospace;margin-top:4px}.evidence-list em{color:var(--success);font:.68rem ui-monospace,SFMono-Regular,Menlo,monospace}.caption{color:var(--muted);font-size:.78rem}.plan-list article{display:grid;grid-template-columns:52px 1fr;gap:18px;padding:18px;border-bottom:1px solid var(--line)}.plan-list article>span{color:var(--accent);font:.78rem ui-monospace,SFMono-Regular,Menlo,monospace}.plan-list p{margin:4px 0 0;color:var(--muted);font-size:.82rem}.plan-footer{margin-top:18px;padding:16px;border-left:2px solid var(--accent);color:var(--muted);font-size:.8rem}.note{padding:110px 0 10px}.note h2{margin:10px 0;font-size:clamp(2rem,4vw,3.3rem);letter-spacing:-.04em}.note a{display:inline-block;margin-top:12px;color:var(--accent);text-underline-offset:4px}@media(max-width:700px){.intro{padding-top:70px}.panel{min-height:0}.stats,.impact-layout{grid-template-columns:1fr}.graph{min-height:440px}.node{min-width:110px}.evidence-list article{grid-template-columns:48px 1fr}.evidence-list em{grid-column:2}.notice{flex-direction:column;gap:6px}}
 </style>
