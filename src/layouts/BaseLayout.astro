@@ -3,6 +3,17 @@ interface Props { title: string; description: string; }
 const { title, description } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const navItems = [
+  ['How to Use', 'how-to-use'],
+  ['Capabilities', 'capabilities'],
+  ['Architecture', 'architecture'],
+  ['Demo', 'demo'],
+  ['Docs', 'docs'],
+  ['Releases', 'releases'],
+  ['Trust', 'security']
+] as const;
+const isActive = (slug: string) => currentPath === `${base}${slug}`.replace(/\/$/, '') || currentPath.startsWith(`${base}${slug}/`);
 ---
 <!doctype html>
 <html lang="en">
@@ -36,11 +47,18 @@ const base = import.meta.env.BASE_URL;
     <header class="site-header">
       <nav class="nav container" aria-label="Primary navigation">
         <a class="brand" href={base} aria-label="Vericore home"><span class="brand-mark" aria-hidden="true">V</span><span>Vericore</span></a>
+        <div class="nav-links" aria-label="Site sections">
+          {navItems.map(([label, slug]) => <a class:list={{ active: isActive(slug) }} href={`${base}${slug}/`} aria-current={isActive(slug) ? 'page' : undefined}>{label}</a>)}
+          <a class="nav-github" href="https://github.com/sonii-shivansh/Vericore">GitHub ↗</a>
+        </div>
         <details class="mobile-menu">
           <summary aria-label="Open navigation menu"><span></span><span></span><span></span></summary>
-          <div class="mobile-menu-panel"><a href={`${base}how-to-use/`}>How to Use</a><a href={`${base}capabilities/`}>Capabilities</a><a href={`${base}architecture/`}>Architecture</a><a href={`${base}demo/`}>Demo</a><a href={`${base}docs/`}>Docs</a><a href={`${base}releases/`}>Releases</a><a href={`${base}security/`}>Trust</a><a href="https://github.com/sonii-shivansh/Vericore">GitHub ↗</a></div>
+          <div class="mobile-menu-panel">
+            <div class="mobile-menu-label">Explore Vericore</div>
+            {navItems.map(([label, slug]) => <a class:list={{ active: isActive(slug) }} href={`${base}${slug}/`} aria-current={isActive(slug) ? 'page' : undefined}>{label}</a>)}
+            <a class="mobile-github" href="https://github.com/sonii-shivansh/Vericore">View source on GitHub ↗</a>
+          </div>
         </details>
-        <div class="nav-links"><a href={`${base}how-to-use/`}>How to Use</a><a href={`${base}capabilities/`}>Capabilities</a><a href={`${base}architecture/`}>Architecture</a><a href={`${base}demo/`}>Demo</a><a href={`${base}docs/`}>Docs</a><a href={`${base}releases/`}>Releases</a><a href={`${base}security/`}>Trust</a><a href="https://github.com/sonii-shivansh/Vericore">GitHub ↗</a></div>
       </nav>
     </header>
     <main id="main"><slot /></main>
@@ -74,14 +92,21 @@ table{max-width:100%;border-collapse:collapse}
 .brand-mark{display:grid;place-items:center;width:28px;height:28px;flex:0 0 28px;border:1px solid var(--accent);border-radius:7px;color:var(--accent);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
 .nav-links,.footer-links{display:flex;gap:16px;color:var(--muted);font-size:.82rem}
 .nav-links a,.footer-links a{text-decoration:none}
+.nav-links a{padding:7px 0;position:relative}
 .nav-links a:hover,.footer-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;background:var(--accent)}
+.nav-github{color:var(--text)!important;border:1px solid var(--line);padding:7px 11px!important;border-radius:7px;background:var(--panel)}
 .mobile-menu{display:none;position:relative}
 .mobile-menu summary{list-style:none;display:grid;place-content:center;gap:4px;width:44px;height:44px;cursor:pointer;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
 .mobile-menu summary::-webkit-details-marker{display:none}
 .mobile-menu summary span{display:block;width:18px;height:2px;border-radius:2px;background:var(--text)}
-.mobile-menu-panel{position:absolute;right:0;top:52px;width:min(300px,calc(100vw - 24px));max-height:min(70vh,520px);overflow:auto;padding:8px;border:1px solid var(--line);border-radius:10px;background:rgb(13 18 26 / 98%);box-shadow:0 18px 50px rgb(0 0 0 / 45%)}
+.mobile-menu-panel{position:absolute;right:0;top:52px;width:min(320px,calc(100vw - 24px));max-height:min(78vh,620px);overflow:auto;padding:10px;border:1px solid var(--line);border-radius:10px;background:rgb(13 18 26 / 98%);box-shadow:0 18px 50px rgb(0 0 0 / 45%)}
+.mobile-menu-label{padding:8px 12px 6px;color:var(--muted);font:.65rem ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.1em;text-transform:uppercase}
 .mobile-menu-panel a{display:block;padding:12px;border-radius:7px;text-decoration:none;color:var(--muted);min-height:44px}
 .mobile-menu-panel a:hover,.mobile-menu-panel a:focus-visible{color:var(--text);background:var(--panel-2)}
+.mobile-menu-panel a.active{color:var(--text);background:var(--panel-2);box-shadow:inset 2px 0 var(--accent)}
+.mobile-menu-panel .mobile-github{margin-top:6px;border-top:1px solid var(--line);border-radius:0;padding-top:16px;color:var(--text);font-weight:650}
 .site-footer{border-top:1px solid var(--line);margin-top:var(--section-gap)}
 .footer-inner{min-height:90px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--muted);font-size:.82rem;padding-block:20px}
 .footer-links{flex-wrap:wrap;justify-content:flex-end}
