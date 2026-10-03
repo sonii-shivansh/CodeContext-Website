@@ -7,6 +7,7 @@ const requiredRoutes = [
   'architecture',
   'demo',
   'docs',
+  'how-to-use',
   'releases',
   'security'
 ];
