@@ -2,13 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const releases = [
-  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Current stable CodeContext release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', true],
+  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Previous published release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', true],
   ['v0.5.0', 'Engineering Intelligence Foundation', 'Previous published milestone covering repository, change, PR, architecture, evidence, Q&A, and planning capabilities.', false],
-  ['v0.2.0', 'CodeContext release', 'Previous published release in the product line.', false]
+  ['v0.2.0', 'Earlier release', 'Earlier published release in the product line.', false]
 ];
 ---
 
-<BaseLayout title="Releases — CodeContext" description="CodeContext release history, platform support, and distribution links.">
+<BaseLayout title="Releases — Vericore" description="Vericore release history, platform support, and distribution links.">
   <section class="hero container">
     <span class="kicker">RELEASES</span>
     <h1>Shipped,<br /><span>versioned, inspectable.</span></h1>
@@ -16,14 +16,14 @@ const releases = [
   </section>
   <section class="container current">
     <div><span class="kicker">CURRENT STABLE</span><h2>v0.6.0</h2><p>Engineering intelligence with a launch-hardened local-first runtime.</p></div>
-    <a class="button" href="https://github.com/sonii-shivansh/CodeContext/releases/tag/v0.6.0">Download on GitHub ↗</a>
+    <a class="button" href="https://github.com/sonii-shivansh/Vericore/releases/tag/v0.6.0">Download on GitHub ↗</a>
     <div class="platforms"><span>Linux x64</span><span>Windows x64</span><span>macOS x64</span><span>macOS ARM64</span></div>
   </section>
   <section class="container releases">
     {releases.map(([version, title, description, current]) => (
       <article class:list={{ release: true, currentRelease: current }}>
         <div><span class="version">{version}</span><h2>{title}</h2><p>{description}</p></div>
-        <a href={`https://github.com/sonii-shivansh/CodeContext/releases/tag/${version}`}>View release ↗</a>
+        <a href={`https://github.com/sonii-shivansh/Vericore/releases/tag/${version}`}>View release ↗</a>
       </article>
     ))}
   </section>
