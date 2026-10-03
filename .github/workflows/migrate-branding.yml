@@ -1,0 +1,49 @@
+name: Migrate website branding
+
+on:
+  push:
+    branches: [chore/migrate-codecontext-to-vericore]
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Replace legacy branding
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=$(git grep -Il -e 'CodeContext' -e 'codecontext' -e 'CODECONTEXT' || true)
+          if [ -n "$files" ]; then
+            while IFS= read -r file; do
+              perl -0pi -e 's/CodeContext-Website/Vericore-Website/g; s/CodeContext/Vericore/g; s/codecontext/vericore/g; s/CODECONTEXT/VERICORE/g' "$file"
+            done <<< "$files"
+          fi
+
+      - name: Verify no legacy branding remains
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -n -E 'CodeContext|codecontext|CODECONTEXT|CodeContext-Website'; then
+            echo 'Legacy CodeContext branding remains.'
+            exit 1
+          fi
+
+      - name: Commit migration
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if git diff --quiet; then
+            echo 'No branding changes required.'
+            exit 0
+          fi
+          git add -A
+          git commit -m 'chore: migrate website branding to Vericore'
+          git push
