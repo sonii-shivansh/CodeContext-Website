@@ -21,7 +21,7 @@ vericore ask "What are the main architectural hotspots in this repository?"</cod
 vericore pr-intelligence /path/to/repository --json
 vericore architecture-drift /path/to/repository --baseline /path/to/architecture-baseline.json --json
 vericore architecture-contract /path/to/repository --contract /path/to/.vericore-architecture-contract.json --json</code></pre></div></article>
-      <article class="step"><span>06</span><div><h2>Prepare the change</h2><p>Generate an evidence-backed engineering plan and a repository-bound Agent Change Contract before implementation begins.</p><pre><code>vericore prepare "add payment validation" --path /path/to/repository</code></pre><p>The persisted contract becomes the verification boundary.</p></div></article>
+      <article class="step" id="prepare"><span>06</span><div><h2>Prepare the change</h2><p>Generate an evidence-backed engineering plan and a repository-bound Agent Change Contract before implementation begins.</p><pre><code>vericore prepare "add payment validation" --path /path/to/repository</code></pre><p>The persisted contract becomes the verification boundary.</p></div></article>
       <article class="step"><span>07</span><div><h2>Implement, then verify</h2><p>Make the change outside Vericore, then verify against the original persisted contract. Do not replace it with a newly generated contract.</p><pre><code>vericore verify \
   --path /path/to/repository \
   --plan output/engineering-plan.json \
