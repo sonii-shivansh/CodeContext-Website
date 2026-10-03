@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductLoop from '../components/ProductLoop.astro';
 const base = import.meta.env.BASE_URL;
 
 const capabilities = [
@@ -38,6 +39,8 @@ const capabilities = [
 <span class="accent">Safety boundary</span>
   prepare → Agent Change Contract → change → verify</code></pre></div>
   </section>
+
+  <section class="section container"><ProductLoop /></section>
 
   <section id="capabilities" class="section container"><div class="section-heading"><span class="kicker">01 / WHAT SHIPS</span><h2>More than code analysis.</h2><p>Vericore 0.7.0 connects deterministic repository facts to engineering workflows. These are shipped capabilities, not roadmap promises.</p></div><div class="capability-grid">{capabilities.map(([title, description], index) => (<article class="capability-card"><span class="index">{String(index + 1).padStart(2, '0')}</span><h3>{title}</h3><p>{description}</p></article>))}</div></section>
 
