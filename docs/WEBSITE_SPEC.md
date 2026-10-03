@@ -1,12 +1,12 @@
-# CodeContext Website Specification
+# Vericore Website Specification
 
 ## Purpose
 
-Create a fast, accessible, evidence-oriented public website for CodeContext. The website must explain and demonstrate the capabilities that are actually implemented in the CodeContext repository.
+Create a fast, accessible, evidence-oriented public website for Vericore. The website must explain and demonstrate the capabilities that are actually implemented in the Vericore repository.
 
 ## Product positioning
 
-CodeContext is an evidence-driven engineering intelligence platform for understanding repositories, dependencies, changes, pull requests, architecture, grounded evidence, repository Q&A, and engineering planning.
+Vericore is an evidence-driven engineering intelligence platform for understanding repositories, dependencies, changes, pull requests, architecture, grounded evidence, repository Q&A, and engineering planning.
 
 The website must not publish unreleased product strategy, private roadmap ideas, or claims about functionality that is not implemented.
 
@@ -32,7 +32,7 @@ The website must not publish unreleased product strategy, private roadmap ideas,
 ## UX principles
 
 1. Demonstrate before explaining.
-2. Prefer real CodeContext outputs and repository-derived examples over marketing claims.
+2. Prefer real Vericore outputs and repository-derived examples over marketing claims.
 3. Keep interactions keyboard accessible.
 4. Respect reduced-motion preferences.
 5. Use restrained motion and a technical visual language.
@@ -48,7 +48,7 @@ Dark engineering-infrastructure aesthetic with subtle graph/grid motifs, readabl
 - Hero and primary actions
 - Product proof / terminal snapshot
 - Current capabilities
-- How CodeContext works
+- How Vericore works
 - Evidence and grounding explanation
 - Interactive repository intelligence demo
 - Architecture overview
@@ -58,15 +58,15 @@ Dark engineering-infrastructure aesthetic with subtle graph/grid motifs, readabl
 
 ## Interactive demo
 
-The GitHub Pages site is static. The demo therefore uses committed, generated sample CodeContext artifacts rather than pretending to run a backend in the browser. The artifact viewer should expose repository structure, dependency relationships, change impact, evidence references, and engineering-plan output where those artifacts exist.
+The GitHub Pages site is static. The demo therefore uses committed, generated sample Vericore artifacts rather than pretending to run a backend in the browser. The artifact viewer should expose repository structure, dependency relationships, change impact, evidence references, and engineering-plan output where those artifacts exist.
 
 ## Documentation integration
 
-The website should link to authoritative CodeContext documentation and, where practical, build documentation from the repository rather than maintaining contradictory copies. Current implementation is the source of truth.
+The website should link to authoritative Vericore documentation and, where practical, build documentation from the repository rather than maintaining contradictory copies. Current implementation is the source of truth.
 
 ## GitHub integration
 
-The site should link to the main CodeContext repository, releases, issues, discussions where available, and contribution documentation. Release information should be derived from GitHub during build where practical.
+The site should link to the main Vericore repository, releases, issues, discussions where available, and contribution documentation. Release information should be derived from GitHub during build where practical.
 
 ## Accessibility
 
