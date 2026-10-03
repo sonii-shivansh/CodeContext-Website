@@ -2,28 +2,32 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const releases = [
-  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Current stable CodeContext release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', true],
+  ['v0.6.0', 'Engineering Intelligence + Launch Hardening', 'Previous published release with deterministic repository intelligence, grounded workflows, local REST capabilities, security hardening, self-contained reports, and cross-platform verification.', false],
   ['v0.5.0', 'Engineering Intelligence Foundation', 'Previous published milestone covering repository, change, PR, architecture, evidence, Q&A, and planning capabilities.', false],
   ['v0.2.0', 'CodeContext release', 'Previous published release in the product line.', false]
 ];
 ---
 
-<BaseLayout title="Releases — CodeContext" description="CodeContext release history, platform support, and distribution links.">
+<BaseLayout title="Releases — Vericore" description="Vericore release history, platform support, and distribution links.">
   <section class="hero container">
     <span class="kicker">RELEASES</span>
     <h1>Shipped,<br /><span>versioned, inspectable.</span></h1>
     <p>GitHub remains the authoritative source for release assets, checksums, source archives, and detailed release notes.</p>
   </section>
   <section class="container current">
-    <div><span class="kicker">CURRENT STABLE</span><h2>v0.6.0</h2><p>Engineering intelligence with a launch-hardened local-first runtime.</p></div>
-    <a class="button" href="https://github.com/sonii-shivansh/CodeContext/releases/tag/v0.6.0">Download on GitHub ↗</a>
+    <div><span class="kicker">CURRENT RELEASE</span><h2>v0.7.0</h2><p>Vericore's current release line with engineering intelligence, grounded workflows, local-first runtime, and agent-oriented verification capabilities.</p></div>
+    <a class="button" href="https://github.com/sonii-shivansh/Vericore/releases/tag/v0.7.0">Download on GitHub ↗</a>
     <div class="platforms"><span>Linux x64</span><span>Windows x64</span><span>macOS x64</span><span>macOS ARM64</span></div>
   </section>
   <section class="container releases">
-    {releases.map(([version, title, description, current]) => (
-      <article class:list={{ release: true, currentRelease: current }}>
+    <article class="release currentRelease">
+      <div><span class="version">v0.7.0</span><h2>Vericore engineering intelligence</h2><p>Current Vericore release with the v0.7 engineering intelligence foundation and change-safety workflows.</p></div>
+      <a href="https://github.com/sonii-shivansh/Vericore/releases/tag/v0.7.0">View release ↗</a>
+    </article>
+    {releases.map(([version, title, description]) => (
+      <article class="release">
         <div><span class="version">{version}</span><h2>{title}</h2><p>{description}</p></div>
-        <a href={`https://github.com/sonii-shivansh/CodeContext/releases/tag/${version}`}>View release ↗</a>
+        <a href={`https://github.com/sonii-shivansh/Vericore/releases/tag/${version}`}>View release ↗</a>
       </article>
     ))}
   </section>
